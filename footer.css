@@ -13,38 +13,38 @@ footer {
 .footer-container {
   display: grid;
   grid-template-columns: 100fr;
-  padding: 15px 20px;
+  padding: 0.95rem 1.25rem;
 }
 
 .footer-box {
-  padding: 5px 10px;
+  padding: 0.3rem 0.6rem;
 }
 
 footer h3 {
   color: white;
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
 }
 
 footer a {
   text-decoration: none;
   color: white;
   font-weight: 400;
-  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
   display: block;
 }
 
 footer p {
   color: white;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 footer input {
-  padding: 10px 0 10px 15px;
+  padding: 0.6rem 0 0.6rem 1rem;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 0.6rem;
 }
 
 footer input::placeholder {
@@ -52,7 +52,7 @@ footer input::placeholder {
 }
 
 footer button {
-  padding: 10px 30px;
+  padding: 0.6rem 1.8rem;
   font-weight: 600;
   color: #fff;
   background: #ec5d5e;
@@ -69,7 +69,6 @@ footer input {
 }
 
 .footer-logo {
-  margin: 0 0 0 20px;
   height: 70px;
   width: 70px;
 }
