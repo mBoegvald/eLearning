@@ -1,0 +1,297 @@
+/* GENERAL RULES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "Lato", sans-serif;
+  color: #213159;
+  font-weight: 400;
+}
+
+h2 {
+  font-family: "Lato", sans-serif;
+  color: #213159;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: "Lato", sans-serif;
+  color: #213159;
+  font-weight: 400;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* MOBILE FIRST */
+
+/* Intro*/
+main {
+  background-image: url(marble2.jpg);
+  /* opacity: 20%; */
+}
+#container_intro,
+.signUp_elements,
+#container_courses {
+  width: 90%;
+  margin: 0 auto;
+}
+.intro_elements {
+  display: grid;
+  grid-template-columns: 10fr;
+  grid-gap: 20px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+.intro_subtitle {
+  display: grid;
+  grid-template-columns: 3fr 10fr;
+}
+.subtitle_icon img {
+  width: 70px;
+}
+.subtitle {
+  align-self: center;
+}
+
+.subtitle h1 {
+  font-size: 28px;
+}
+/* end intro */
+
+/* sign up */
+#container_signup {
+  background: linear-gradient(180deg, #3d6098 0%, rgba(61, 96, 152, 0) 100%),
+    rgba(61, 96, 152, 0.75);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signUp_elements {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.signup_txt h2 {
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.signup_txt p {
+  color: #ffffff;
+  padding-bottom: 20px;
+}
+
+.signup_buttons {
+  text-align: center;
+}
+.signup_button {
+  background: #ec5d5e;
+  border: 1.5px solid #ec5d5e;
+  width: 110px;
+  height: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  margin-right: 5px;
+}
+
+.read_more_button {
+  border: 1.5px solid #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  background: transparent;
+  width: 110px;
+  height: 30px;
+  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  margin-left: 5px;
+}
+/* end sign up */
+
+/* courses */
+.courses_subtitle {
+  padding-top: 40px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+.course_card img {
+  width: 100%;
+  height: 239px;
+}
+
+.course_card {
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.course_card_txt {
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-top: 15px;
+}
+
+.course_card_txt h3 {
+  padding-bottom: 10px;
+}
+
+.course_card_link {
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.course_card_link a {
+  color: #ec5d5e;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+/* courses end */
+
+@media screen and (min-width: 627px) {
+  #container_intro,
+  .signUp_elements,
+  #container_courses {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .intro_subtitle {
+    grid-template-columns: 2fr 10fr;
+  }
+
+  .course_card {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #container_intro,
+  .signUp_elements,
+  #container_courses {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .intro_elements {
+    display: grid;
+    grid-template-columns: 10fr 10fr;
+    grid-gap: 40px;
+    padding-top: 50px;
+    padding-bottom: 70px;
+  }
+  .signUp_elements {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .signup_buttons {
+    margin-top: 10px;
+  }
+  .courses_subtitle {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  .course_card {
+    width: 100%;
+    margin: 0;
+  }
+  .course_cards {
+    display: grid;
+    grid-template-columns: 10fr 10fr;
+    grid-gap: 30px;
+  }
+  .course_card_txt h3 {
+    padding-top: 10px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .intro_subtitle {
+    grid-template-columns: 3fr 10fr;
+  }
+
+  .signUp_elements {
+    display: grid;
+    grid-template-columns: 10fr 6fr;
+    grid-gap: 30px;
+  }
+  .signup_buttons {
+    margin-top: 0;
+    align-self: center;
+  }
+  .courses_subtitle {
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+  .courses_subtitle p {
+    margin-top: 15px;
+  }
+
+  .course_cards {
+    display: grid;
+    grid-template-columns: 10fr 10fr 10fr;
+    grid-gap: 30px;
+  }
+  .course_card_txt h3 {
+    padding-top: 10px;
+  }
+  .course_card_txt {
+    padding-right: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .subtitle h1 {
+    font-size: 32px;
+  }
+  .signup_txt h2 {
+    font-size: 28px;
+  }
+  .signup_button,
+  .read_more_button {
+    width: 140px;
+    height: 35px;
+  }
+  .courses_subtitle h2 {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .intro_subtitle {
+    grid-template-columns: 2fr 10fr;
+  }
+  .intro_elements {
+    grid-gap: 50px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+  .signUp_elements {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+  .signup_button,
+  .read_more_button {
+    margin-left: 20px;
+    width: 170px;
+    height: 40px;
+  }
+  .courses_subtitle {
+    padding-top: 90px;
+    padding-bottom: 80px;
+  }
+  .course_cards {
+    grid-gap: 40px;
+  }
+  .course_card_txt,
+  .course_card_link {
+    padding-left: 25px;
+  }
+}
