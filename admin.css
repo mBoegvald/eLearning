@@ -1,0 +1,185 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    
+    font-family: Lato;
+
+}
+
+body {
+
+}
+
+.wrapper {
+    width:100%;
+    max-width:1600px;
+    margin-left:auto;
+    margin-right:auto;
+
+    border-radius:5px;
+    background-color:#F0F1F2;
+}
+
+
+  .red-btn {
+    background-color:#DC3545; 
+    color:white;
+    border-radius:5px;
+  }
+
+  .form-heading {
+      display:flex;
+      justify-content:space-between;
+  }
+
+
+
+  .x-btn {
+      font-size:20px;
+      width:50px !important;
+      border-radius:5px;
+      cursor:pointer;
+      display:grid;
+      align-items:center;
+      justify-items:center;
+  }
+
+  /* LOGIN CONTAINER */
+
+  #userLoginContainer {
+      display:grid;
+      align-items:center;
+      justify-content:center;
+      background-color:#F1F1F1;
+      width:100vw;
+      height:100vh;
+  }
+
+  #userLoginBox {
+    display:grid;
+    margin-top:-150px;
+  }
+
+  #userLoginContainer h1 {
+    text-align:center;
+}
+
+#userLoginContainer .momondo-a {
+    margin:auto;
+}
+
+#userLoginForm, #userSignupForm, #userProfileSettingsForm {
+    margin-top:50px;
+    display:grid;
+    padding:40px;
+    background: #FFFFFF;
+    border: 1px solid rgba(61, 96, 152, 0.75);
+    box-sizing: border-box;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+#userLoginForm input, #userSignupForm input, #userProfileSettingsForm input {
+    margin-top:50px;
+    display:grid;
+    margin-top:10px;
+    margin-bottom:10px;
+    padding:10px;
+    height:40px;
+    width:400px;
+    background: #FFFFFF;
+    border: 1px solid rgba(33, 49, 89, 0.75);
+    box-sizing: border-box;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+#userLoginForm .form-btn, #userSignupForm .form-btn, #userProfileSettingsForm .form-btn {
+    border:none;
+    margin-top:10px;
+    padding:10px;
+    font-weight:400;
+    background: #EC5D5E;
+    border: 3px solid #EC5D5E;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    color:white;
+    width:50%;
+    height:50px !important;
+    justify-self:right;
+    padding:5px; text-decoration:none;
+    cursor:pointer;
+}
+
+.back-btn {
+    color:black;
+    text-decoration:none;
+    font-size:80%;
+    padding:20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+.form-h1 {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    color: #213159;
+}
+
+.login-helper {
+    justify-self:right;
+    font-size:12px;
+    padding-top:20px;
+    padding-right:5px;
+    text-decoration:none;
+    color:black;
+}
+
+.form-btn-secondary {
+    border:none;
+    margin-top:10px;
+    padding:10px;
+    font-weight:400;
+    background: #FFFFFF;
+    border: 3px solid #EC5D5E;
+    box-sizing: border-box;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    color:#EC5D5E;
+    width:50%;
+    height:50px !important;
+    justify-self:right;
+    padding:5px; text-decoration:none;
+    cursor:pointer;
+}
+
+#userProfileSettingsForm  .profile-settings-form-btns {
+    display:flex;
+}
+
+#userProfileSettingsForm .profile-settings-form-btns .form-btn-secondary {
+    margin-right:10px;
+}
+
+#userProfileSettingsForm .profile-settings-form-btns .form-btn {
+    margin-left:10px;
+}
+
+
+#DeleteProfileBtn {
+    cursor:pointer;
+    color:#EC5D5E;
+    margin:10px 3px 5px 3px;
+}
+
+#userProfileSettingsForm .delete-helper {
+
+
+    margin:5px 3px 10px 3px;
+}
