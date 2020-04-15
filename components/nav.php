@@ -36,7 +36,7 @@ $navOptions = [
     <nav>
       <div id="mobile-container">
         <div class="logo">
-          <a href="#"><img src="burger.png" alt="" /></a>
+          <a href="#"><img src="./pics/burger.png" alt="" /></a>
         </div>
         <div class="navbar-toggler">
           <div class="bar1"></div>
