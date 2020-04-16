@@ -14,17 +14,13 @@ nav {
   display: grid;
   grid-template-columns: 10fr 10fr;
   align-items: center;
+  padding: 1.1rem;
 }
 
-.logo {
-  margin: 0 0 0 1.25rem;
-  height: 70px;
-  width: 70px;
-}
-
-.logo img {
-  max-width: 100%;
-  max-height: 100%;
+.logo a {
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .navbar-toggler {
@@ -41,10 +37,18 @@ nav {
 }
 
 .navbar-collapse {
-  margin: 0.9rem 0 1.25rem 1.25rem;
-  grid-row-gap: 0.6rem;
-  text-align: center;
+  padding: 0.9rem 0 1.25rem 1.25rem;
   display: none;
+}
+
+.navbar-collapse li {
+  padding: 0.8rem 0 0.8rem 0;
+  display: block;
+}
+
+.navbar-collapse li a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .navbar-collapse a.red-btn {
@@ -59,7 +63,7 @@ nav {
 }
 
 .showCollapse {
-  display: inline-grid;
+  display: block;
 }
 
 .change .bar1 {
@@ -91,10 +95,17 @@ nav {
   }
 
   .navbar-collapse {
-    display: inline-grid;
+    display: block;
     align-self: center;
     margin: 0 1.2rem 0 0;
-    grid-template-columns: 10fr 10fr;
-    grid-column-gap: 0.6rem;
+  }
+
+  .navbar-collapse li {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  .navbar-collapse li:last-of-type {
+    margin-right: 0rem;
   }
 }
