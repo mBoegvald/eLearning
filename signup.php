@@ -5,7 +5,7 @@
   // Validation
   if( isset($_POST['txtEmail']) && 
       isset($_POST['txtPassword']) &&
-      isset($_POST['txtName'])
+      isset($_POST['txtName']) 
   ){
     // Defining Post Variables for sign up
     $sUserName         = $_POST['txtName'];
@@ -15,7 +15,7 @@
       $sql = "INSERT INTO `users` (`id`, `name`, `email`, `password`) 
       VALUES (NULL, '$sUserName', '$sUserEmail', '$sUserPassword')";
       $db->exec($sql);
-
+      
       echo "New user created successfully";
       // To start using sessions/cookies 
       session_start();
