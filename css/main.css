@@ -26,12 +26,12 @@ p {
 
 main {
   width: 100%;
-  background-image: url(./pics/marble2.jpg);
+  background-image: url(../pics/marble2.jpg);
 }
 
 .intro-content {
   display: grid;
-  grid-template-columns: 10fr 10fr;
+  grid-template-columns: 10fr;
   grid-gap: 5rem;
   width: 80%;
   margin: 0 auto;
@@ -97,7 +97,13 @@ main {
   border: 0.15rem solid #ffffff;
 }
 
-@media screen and (min-width: 1125px) {
+@media screen and (min-width: 600px) {
+  .intro-content {
+    grid-template-columns: 10fr 10fr;
+  }
+}
+
+@media screen and (min-width: 1140px) {
   .banner-content {
     grid-template-columns: 10fr 6fr;
   }
