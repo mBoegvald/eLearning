@@ -61,9 +61,11 @@
     <div id="userLoginBox">
 
       <form id="userLoginForm" class="user-form" action="login.php" method="POST">
-      <h1 class="form-h1">Login</h1>
+        <h1 class="form-h1">Login</h1>
+
         <label for="txtEmail">Email Address</label>
         <input name="txtEmail" type="text" placeholder="Email" value="">
+        
         <label for="txtPassword">Password</label>
         <input name="txtPassword" type="password" placeholder="Password" value="">
         

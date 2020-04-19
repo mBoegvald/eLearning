@@ -59,21 +59,25 @@
 ?>
   <div id="userLoginContainer">
     <div id="userLoginBox">
-
       <form id="userProfileSettingsForm" class="user-form" action="profile-settings.php" method="POST">
-      <h1 class="form-h1">Profile Settings</h1>
+        <h1 class="form-h1">Profile Settings</h1>
+
         <div style="display:grid">
           <label for="txtName">Name</label>
           <input name="txtName" type="text" placeholder="Name" value="Joshua">
           <label for="txtLastName">Lastname</label>
           <input name="txtLastName" type="text" placeholder="Last Name" value="Kaplan">
         </div>
+
         <label for="txtEmail">Email Address</label>
         <input name="txtEmail" type="text" placeholder="Email" value="joshkap2015@gmail.com">
+
         <label for="txtPassword">Password</label>
         <input name="txtPassword" type="password" placeholder="Password" value="admin">
+
         <p id="DeleteProfileBtn" href="#">Delete your account</p>
         <p class="delete-helper">You will receive an email to bla bla blaa</p>
+        
         <div class="profile-settings-form-btns">
           <button class="form-btn-secondary">Cancel</button>
           <button class="form-btn">Save</button>
