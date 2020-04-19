@@ -55,8 +55,8 @@
 </head>
 <body>
 <?php
-          include_once("components/nav.php");
-      ?>
+      include_once("components/nav.php");
+?>
   <div id="userLoginContainer">
     <div id="userLoginBox">
 
