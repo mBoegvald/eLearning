@@ -39,12 +39,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Login</title>
-  <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/courses.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
 </head>
 <body>
+  <?php
+          include_once("components/nav.php");
+      ?>
   <div id="userLoginContainer">
     <div id="userLoginBox">
-      <a class="momondo-a" href="index.php">ELEARNING SITE</a>
 
       <form id="userLoginForm" class="user-form" action="login.php" method="POST">
       <h1 class="form-h1">Login</h1>
@@ -61,6 +75,8 @@
     
   </div>
   <!-- <a href="signup.php">SIGN UP</a> -->
-
+  <?php
+        include_once("components/footer.html");
+    ?>
 </body>
 </html>
