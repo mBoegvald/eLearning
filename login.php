@@ -4,24 +4,38 @@
 
   // Validation
   if( isset($_POST['txtEmail']) && 
-      isset($_POST['txtPassword']) &&
-      isset($_POST['txtName'])
+      isset($_POST['txtPassword'])
   ){
     // Defining Post Variables for sign up
-    $sUserName         = $_POST['txtName'];
     $sUserEmail         = $_POST['txtEmail'];
     $sUserPassword      = $_POST['txtPassword'];
       // Inserting new user into crud database
-      $sql = "INSERT INTO `users` (`id`, `name`, `email`, `password`) 
-      VALUES (NULL, '$sUserName', '$sUserEmail', '$sUserPassword')";
-      $db->exec($sql);
+      // $sql = "SELECT EXISTS(SELECT 1 FROM users WHERE email = 'txtEmail')";
 
-      echo "New user created successfully";
+      // $db->exec($sql);
+
+      $q = $db->prepare("SELECT * FROM users WHERE email = '$sUserEmail'");
+      $q->execute();
+
+      $data = $q->fetchAll();
+
+      echo 'Hi '.$data[0]->name;
+      
+      // print_r($data);
+
+      // if ($db) {
+      //   print_r($db->name);
+      //   exit();
+      // }
+      
+
+      
+      echo "User has been found successfully";
       // To start using sessions/cookies 
       session_start();
       // You can put anything in the session
       $_SESSION['sEmail'] = $sUserEmail;
-      $_SESSION['sName'] = $sUserName;
+
       // header('Location: admin-dashboard.php');
       // exit();
   }
@@ -38,8 +52,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Login</title>
-    <link rel="stylesheet" href="css/admin.css">
+  <title>User Login</title>
+    <link rel="stylesheet" href="css/user.css">
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -65,7 +79,7 @@
 
         <label for="txtEmail">Email Address</label>
         <input name="txtEmail" type="text" placeholder="Email" value="">
-        
+
         <label for="txtPassword">Password</label>
         <input name="txtPassword" type="password" placeholder="Password" value="">
         

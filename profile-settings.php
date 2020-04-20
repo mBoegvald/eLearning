@@ -38,8 +38,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Login</title>
-  <link rel="stylesheet" href="css/admin.css">
+  <title>User Login</title>
+  <link rel="stylesheet" href="css/user.css">
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -77,7 +77,7 @@
 
         <p id="DeleteProfileBtn" href="#">Delete your account</p>
         <p class="delete-helper">You will receive an email to bla bla blaa</p>
-        
+
         <div class="profile-settings-form-btns">
           <button class="form-btn-secondary">Cancel</button>
           <button class="form-btn">Save</button>

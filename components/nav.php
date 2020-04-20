@@ -1,7 +1,7 @@
 <?php 
   
   // Get the users status/mode
-  $mode = 'user';
+  $mode = 'none';
   if(isset($_SESSION['bAdmin'])){
       if($_SESSION['bAdmin']){
         $mode = 'admin';
