@@ -19,7 +19,18 @@
 
       $data = $q->fetchAll();
 
-      echo 'Hi '.$data[0]->name;
+      // echo 'Hi '.$data[0]->id;
+
+      $foundUser = $data[0];
+
+      if($foundUser->password == $_POST['txtPassword']) {
+        session_start();
+        $_SESSION['sEmail'] = $sUserEmail;
+        $_SESSION['sName'] = $foundUser->name;
+        $_SESSION['sUserId'] = $foundUser->id;
+
+        echo "Hello, User ID: $foundUser->id. Your Name is $foundUser->name, your email is $sUserEmail and your password is correct.";
+      }
       
       // print_r($data);
 
@@ -30,9 +41,8 @@
       
 
       
-      echo "User has been found successfully";
+      // echo "User has been found successfully";
       // To start using sessions/cookies 
-      session_start();
       // You can put anything in the session
       $_SESSION['sEmail'] = $sUserEmail;
 
