@@ -26,7 +26,7 @@
       if($foundUser->password == $_POST['txtPassword']) {
         session_start();
         $_SESSION['sEmail'] = $sUserEmail;
-        $_SESSION['s  FirstName'] = $foundUser->firstname;
+        $_SESSION['sFirstName'] = $foundUser->firstname;
         $_SESSION['sUserId'] = $foundUser->userID;
 
         echo "Hello, User ID: $foundUser->userID. Your Name is $foundUser->firstname, your email is $sUserEmail and your password is correct.";
