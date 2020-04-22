@@ -5,25 +5,31 @@
   // Validation
   if( isset($_POST['txtEmail']) && 
       isset($_POST['txtPassword']) &&
-      isset($_POST['txtName']) 
+      isset($_POST['txtFirstName']) &&
+      isset($_POST['txtLastName']) 
   ){
     // Defining Post Variables for sign up
-    $sUserName         = $_POST['txtName'];
+    $sUserFirstName         = $_POST['txtFirstName'];
+    $sUserLastName         = $_POST['txtLastName'];
     $sUserEmail         = $_POST['txtEmail'];
     $sUserPassword      = $_POST['txtPassword'];
       // Inserting new user into crud database
-      $sql = "INSERT INTO `users` (`id`, `name`, `email`, `password`) 
-      VALUES (NULL, '$sUserName', '$sUserEmail', '$sUserPassword')";
-      $db->exec($sql);
+      $q = $db->prepare("INSERT INTO `user` (`userID`, `firstname`,`lastname`, `email`, `password`) 
+      VALUES (NULL, '$sUserFirstName','$sUserLastName', '$sUserEmail', '$sUserPassword')");
+      $q->execute();
       
       echo "New user created successfully";
+
+
       // To start using sessions/cookies 
       session_start();
       // You can put anything in the session
       $_SESSION['sEmail'] = $sUserEmail;
-      $_SESSION['sName'] = $sUserName;
-      // header('Location: admin-dashboard.php');
-      // exit();
+      $_SESSION['sFirstName'] = $sUserFirstName;
+      $_SESSION['sUserID'] = $sUserFirstName;
+      
+      header('Location: login.php');
+      exit();
   }
 
   // Testing database connection
@@ -39,7 +45,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Login</title>
-  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="css/user.css">
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -64,8 +70,8 @@
       <h1 class="form-h1">Sign Up</h1>
 
         <div style="display:grid">
-          <label for="txtName">Name</label>
-          <input name="txtName" type="text" placeholder="Name" value="Joshua">
+          <label for="txtFirstName">Name</label>
+          <input name="txtFirstName" type="text" placeholder="First Name" value="Joshua">
           <label for="txtLastName">Lastname</label>
           <input name="txtLastName" type="text" placeholder="Last Name" value="Kaplan">
         </div>

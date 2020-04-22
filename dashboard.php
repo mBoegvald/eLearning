@@ -1,3 +1,13 @@
+<?php 
+ session_start();
+ if( isset($_SESSION['sUserId'])){
+    $sUserID = $_SESSION['sUserId'];
+    echo "UserID: $sUserID"; 
+ } else {
+     echo "no User ID Found";
+ }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
