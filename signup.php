@@ -26,7 +26,6 @@
       // You can put anything in the session
       $_SESSION['sEmail'] = $sUserEmail;
       $_SESSION['sFirstName'] = $sUserFirstName;
-      $_SESSION['sUserID'] = $sUserFirstName;
       
       header('Location: login.php');
       exit();

@@ -31,6 +31,7 @@
 
         echo "Hello, User ID: $foundUser->userID. Your Name is $foundUser->firstname, your email is $sUserEmail and your password is correct.";
         header('Location: dashboard.php');
+        exit();
       }
       
       // print_r($data);
