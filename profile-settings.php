@@ -7,23 +7,6 @@
       isset($_POST['txtPassword']) &&
       isset($_POST['txtName'])
   ){
-    // Defining Post Variables for sign up
-    $sUserName         = $_POST['txtName'];
-    $sUserEmail         = $_POST['txtEmail'];
-    $sUserPassword      = $_POST['txtPassword'];
-      // Inserting new user into crud database
-      $sql = "INSERT INTO `users` (`id`, `name`, `email`, `password`) 
-      VALUES (NULL, '$sUserName', '$sUserEmail', '$sUserPassword')";
-      $db->exec($sql);
-
-      echo "New user created successfully";
-      // To start using sessions/cookies 
-      session_start();
-      // You can put anything in the session
-      $_SESSION['sEmail'] = $sUserEmail;
-      $_SESSION['sName'] = $sUserName;
-      // header('Location: admin-dashboard.php');
-      // exit();
   }
 
   // Testing database connection

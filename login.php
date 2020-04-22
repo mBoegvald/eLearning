@@ -14,7 +14,7 @@
 
       // $db->exec($sql);
 
-      $q = $db->prepare("SELECT * FROM users WHERE email = '$sUserEmail'");
+      $q = $db->prepare("SELECT * FROM user WHERE email = '$sUserEmail'");
       $q->execute();
 
       $data = $q->fetchAll();
@@ -26,10 +26,12 @@
       if($foundUser->password == $_POST['txtPassword']) {
         session_start();
         $_SESSION['sEmail'] = $sUserEmail;
-        $_SESSION['sName'] = $foundUser->name;
-        $_SESSION['sUserId'] = $foundUser->id;
+        $_SESSION['sFirstName'] = $foundUser->firstname;
+        $_SESSION['sUserId'] = $foundUser->userID;
 
-        echo "Hello, User ID: $foundUser->id. Your Name is $foundUser->name, your email is $sUserEmail and your password is correct.";
+        echo "Hello, User ID: $foundUser->userID. Your Name is $foundUser->firstname, your email is $sUserEmail and your password is correct.";
+        header('Location: dashboard.php');
+        exit();
       }
       
       // print_r($data);
@@ -44,7 +46,6 @@
       // echo "User has been found successfully";
       // To start using sessions/cookies 
       // You can put anything in the session
-      $_SESSION['sEmail'] = $sUserEmail;
 
       // header('Location: admin-dashboard.php');
       // exit();
@@ -88,10 +89,10 @@
         <h1 class="form-h1">Login</h1>
 
         <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="text" placeholder="Email" value="">
+        <input name="txtEmail" type="text" placeholder="Email" value="joshkap2015@gmail.com">
 
         <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password" value="">
+        <input name="txtPassword" type="password" placeholder="Password" value="admin">
         
         <button class="form-btn">Log In</button>
         <a class="login-helper" href="signup.php">Don't have an account? Sign Up.</a>

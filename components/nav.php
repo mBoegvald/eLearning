@@ -16,8 +16,8 @@
     'none' => [
       '<div class="navbar-collapse">',
         '<ul>',
-          '<li><a href="#" class="red-btn">Sign up</a></li>',
-          '<li><a href="#" class="red-btn">Login</a></li>',
+          '<li><a href="signup.php" class="red-btn">Sign up</a></li>',
+          '<li><a href="login.php" class="red-btn">Login</a></li>',
         '</ul>',
       '</div>'
     ],
