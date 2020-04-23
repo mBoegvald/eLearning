@@ -3,7 +3,7 @@
 try{
     $dbUserName = 'root';
     $dbPassword = '';
-    $connection = 'mysql:host=127.0.0.1; dbname=elearning1; charset=utf8mb4';
+    $connection = 'mysql:host=127.0.0.1; dbname=e_learning; charset=utf8mb4';
     $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // TRY-CATCH
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ //JSON 
