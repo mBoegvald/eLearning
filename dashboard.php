@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/courses.css">
+    <link rel="stylesheet" href="css/main.css">
+
 </head>
 <body>
     <?php include_once("components/nav.php");?>
@@ -17,7 +19,7 @@
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut aut inventore exercitationem necessitatibus repellendus mollitia ratione iure debitis, fuga est cupiditate eum, quasi velit praesentium ad corrupti modi aperiam dolore!
                 </p>
             </div>
-            <?php include_once("components/courses.html");?>
+            <?php include_once("components/courses.php");?>
         </section>
     </main>
     <?php include_once("components/footer.html");?>
