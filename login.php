@@ -1,26 +1,20 @@
 <?php
   // Initiating database connection
-    require_once('db_crud.php');
+    require_once('db/db.php');
 
   // Validation
   if( isset($_POST['txtEmail']) && 
       isset($_POST['txtPassword'])
   ){
     // Defining Post Variables for sign up
-    $sUserEmail         = $_POST['txtEmail'];
-    $sUserPassword      = $_POST['txtPassword'];
+    $sUserEmail = $_POST['txtEmail'];
+    $sUserPassword = $_POST['txtPassword'];
       // Inserting new user into crud database
-      // $sql = "SELECT EXISTS(SELECT 1 FROM users WHERE email = 'txtEmail')";
-
-      // $db->exec($sql);
 
       $q = $db->prepare("SELECT * FROM user WHERE email = '$sUserEmail'");
       $q->execute();
 
       $data = $q->fetchAll();
-
-      // echo 'Hi '.$data[0]->id;
-
       $foundUser = $data[0];
 
       if($foundUser->password == $_POST['txtPassword']) {
@@ -89,10 +83,10 @@
         <h1 class="form-h1">Login</h1>
 
         <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="text" placeholder="Email" value="joshkap2015@gmail.com">
+        <input name="txtEmail" type="text" placeholder="Email">
 
         <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password" value="admin">
+        <input name="txtPassword" type="password" placeholder="Password">
         
         <button class="form-btn">Log In</button>
         <a class="login-helper" href="signup.php">Don't have an account? Sign Up.</a>

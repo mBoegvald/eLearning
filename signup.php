@@ -1,25 +1,26 @@
 <?php
   // Initiating database connection
-    require_once('db_crud.php');
+    require_once('db/db.php');
 
   // Validation
   if( isset($_POST['txtEmail']) && 
       isset($_POST['txtPassword']) &&
       isset($_POST['txtFirstName']) &&
-      isset($_POST['txtLastName']) 
+      isset($_POST['txtLastName'])
+
   ){
     // Defining Post Variables for sign up
-    $sUserFirstName         = $_POST['txtFirstName'];
-    $sUserLastName         = $_POST['txtLastName'];
-    $sUserEmail         = $_POST['txtEmail'];
-    $sUserPassword      = $_POST['txtPassword'];
+    $sUserFirstName = $_POST['txtFirstName'];
+    $sUserLastName = $_POST['txtLastName'];
+    $sUserEmail = $_POST['txtEmail'];
+    $sUserPassword = $_POST['txtPassword'];
+    $sUserID = bin2hex(random_bytes(8));
       // Inserting new user into crud database
       $q = $db->prepare("INSERT INTO `user` (`userID`, `firstname`,`lastname`, `email`, `password`) 
-      VALUES (NULL, '$sUserFirstName','$sUserLastName', '$sUserEmail', '$sUserPassword')");
+      VALUES ('$sUserID', '$sUserFirstName','$sUserLastName', '$sUserEmail', '$sUserPassword')");
       $q->execute();
       
       echo "New user created successfully";
-
 
       // To start using sessions/cookies 
       session_start();
@@ -70,16 +71,16 @@
 
         <div style="display:grid">
           <label for="txtFirstName">Name</label>
-          <input name="txtFirstName" type="text" placeholder="First Name" value="Joshua">
+          <input name="txtFirstName" type="text" placeholder="First Name">
           <label for="txtLastName">Lastname</label>
-          <input name="txtLastName" type="text" placeholder="Last Name" value="Kaplan">
+          <input name="txtLastName" type="text" placeholder="Last Name">
         </div>
 
         <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="text" placeholder="Email" value="joshkap2015@gmail.com">
+        <input name="txtEmail" type="text" placeholder="Email">
 
         <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password" value="admin">
+        <input name="txtPassword" type="password" placeholder="Password">
 
         <button class="form-btn">Sign Up</button>
         <a class="login-helper" href="login.php">Already have an account? Login.</a>

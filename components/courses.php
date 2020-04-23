@@ -1,30 +1,51 @@
 <div class="courses-container">
   <?php 
     require_once('./db/db.php');
-  try{
-    $q = $db->prepare('SELECT * FROM course');
-    $q->execute();
-    $data = $q->fetchAll();
+    try{
+    
+    // Get userID from session
+    $userID = $_SESSION['sUserId'];
+
+    // Prepare info for courses
+    $coursesQ = $db->prepare('SELECT * FROM course');
+    $coursesQ->execute();
+    $coursesData = $coursesQ->fetchAll();
+    
+    // Prepare info for course_progress
+    $courseProgressQ = $db->prepare("SELECT * from course_progress where course_progress.userID = '$userID'");
+    $courseProgressQ->execute();
+    $courseProgressData = $courseProgressQ->fetchAll();
+    
     $sCourseDiv = '';
-    foreach($data as $course) {
+
+    foreach($coursesData as $course) {
       $sCourseDiv .= "
-        <div class='course'>
-          <img src='./pics/placeholder.jpg' alt='$course->alt' />
+      <div class='course'>
+        <div class='img-container'>";
+
+      foreach($courseProgressData as $courseProgress) {
+          
+          if ($courseProgress->courseID == $course->courseID && $courseProgress->courseCompleted == 1) {
+              $sCourseDiv .= "<img class='badge' src='pics/badge.png'/>";
+          }
+        }
+          $sCourseDiv .= "
+            <img src='pics/placeholder.jpg' alt='$course->alt' />
+          </div>
           <div class='course-text'>
-            <h3>$course->header</h3>
-            <p>
-              $course->text
-            </p>
+              <h3>$course->header</h3>
+              <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi cupiditate asperiores corrupti natus. Eum modi doloremque libero soluta itaque iste dolores ipsum quibusdam numquam. Fuga dolores magni maiores reiciendis dolore!
+              </p>
           </div>
           <div class='course-link'>
-            <a href='$course->courseID'>Start learning</a>
+              <a href='$course->courseID'>Start learning</a>
           </div>
-        </div>
-       ";
+      </div>";
     }
-    echo $sCourseDiv;
-  }catch(PDOException $ex){
-    echo $ex;
+  echo $sCourseDiv;
+}catch(PDOException $ex){
+  echo $ex;
   }
-  ?>
+?>
   
