@@ -1,20 +1,44 @@
 <?php 
 
-$courseId = $_GET["videoId"];
+try{
+    $dbUserName = 'root';
+    $dbPassword = '';
+    $connection = 'mysql:host=127.0.0.1; dbname=elearning; charset=utf8mb4';
+    $options = [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, //TRY CATCH
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ //ALLOWS JSON
+        // PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC //ALLOWS ASSOSIATIVE
+    ];
+    $db = new PDO($connection, $dbUserName, $dbPassword, $options);
 
-if (!isset($courseId)) {
-    header("Location: index.php");
-    die();
+    $query = $db->prepare('SELECT * FROM courses');
+    $query->execute();
+    $courses = $query->fetchAll();
+
+    $videoId = 2;
+
+    foreach($courses as $course) {
+        if($course->courseId == $videoId) {
+            $video =
+            "<div class='videoContainer'>
+            <h1>$course->courseName</h1>
+            <iframe 
+                src='$course->courseLink'
+                frameborder='0'
+                allow='accelerometer;
+                autoplay; 
+                encrypted-media;
+                gyroscope;
+                picture-in-picture'
+                allowfullscreen>
+            </iframe>
+            </div>";
+        }
+    } 
+
+}catch(PDOExecption $ex){
+echo $ex;
 }
-
-$courses = [
-    '1' => ['https://www.youtube.com/embed/dQw4w9WgXcQ'],
-    '2' => ['https://www.youtube.com/embed/sQCfWXoMLi0'],
-    '3' => ['https://www.youtube.com/embed/dQw4w9WgXcQ'],
-    '4' => ['https://www.youtube.com/embed/dQw4w9WgXcQ'],
-    '5' => ['https://www.youtube.com/embed/dQw4w9WgXcQ'],
-    '6' => ['https://www.youtube.com/embed/dQw4w9WgXcQ']
-];
 
 ?>
 
@@ -38,13 +62,9 @@ $courses = [
     <title>Course</title>
 </head>
 <body>
-<?php
+    <?php
         include_once("components/nav.php");
-    ?>
-    <iframe width="1440" height="740" src="<?php foreach($courses[$courseId] as $video) {
-    echo $video;
-} ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<?php
+        echo $video;
         include_once("components/footer.html");
     ?>
 </body>
