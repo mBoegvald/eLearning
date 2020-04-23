@@ -75,7 +75,7 @@
                 </p>
             </div>
             <?php 
-                include_once("components/courses.html");
+                include_once("components/courses.php");
             ?>
         </section>
     </main>
