@@ -3,12 +3,10 @@
  // Initiating database connection
  require_once('db/db.php');
 try{
-
-    if(isset($_POST['endCourse'])) {
-    //$userID = $_SESSION['sUserId'];
-    //$courseID = $_GET['iCourseID'];
-    $sUserID = 'a8da11787dfgfdkmgldfjiofsdfjiofjipsd3801b28';
-    $iCourseID = 4;
+    session_start();
+    $sUserID = $_SESSION['sUserId'];
+    //$iCourseID = $_GET['iCourseID'];
+    $iCourseID = 5;
 
     // $coursesQ = $db->prepare('SELECT * FROM course');
     // $coursesQ->execute();
@@ -26,11 +24,10 @@ try{
         } 
     }
     if($boolean === 0) {
-        // $userProgress = $db->prepare("INSERT INTO `course_progress` (`courseID`, `courseCompleted`,`userID`) 
-        // VALUES ('$iCourseID', 1,'$sUserID')");
-        // $userProgress->execute();
+        $userProgress = $db->prepare("INSERT INTO `course_progress` (`courseID`, `courseCompleted`,`userID`) 
+        VALUES ('$iCourseID', 0,'$sUserID')");
+        $userProgress->execute();
     }
-}
 }catch(PDOException $ex){
     echo $ex;
 }
@@ -62,8 +59,8 @@ try{
     <video id="courseVideo" width="320" height="240" controls>
         <source src="oke.mp4" type="video/mp4">
     </video>
-        <form action="single-course.php" method="POST">
-            <button type="submit" class="btn red-btn" name="endCourse">Course completed</button>
+        <form action="dashboard.php" method="POST">
+            <button type="submit" value="<?=$iCourseID?>" class="btn red-btn" name="endCourse">Course completed</button>
         </form>
     <?php
         include_once("components/footer.html");
