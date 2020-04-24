@@ -5,8 +5,7 @@
 try{
     session_start();
     $sUserID = $_SESSION['sUserId'];
-    //$iCourseID = $_GET['iCourseID'];
-    $iCourseID = 5;
+    $iCourseID = $_GET['courseID'];
 
     // $coursesQ = $db->prepare('SELECT * FROM course');
     // $coursesQ->execute();

@@ -43,7 +43,7 @@
                 </p>
             </div>
             <div class='course-link'>
-                <a href='$course->courseID'>Start learning</a>
+                <a href='single-course.php?courseID=$course->courseID'>Start learning</a>
             </div>
         </div>";
     }
