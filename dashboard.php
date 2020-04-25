@@ -1,11 +1,10 @@
 <?php 
-require_once('./db/db.php');
-session_start();
+require_once('has-access.php');
+require_once('db/db.php');
 if(isset($_SESSION['sUserId'])){
     $sUserID = $_SESSION['sUserId'];
     if (isset($_POST['endCourse'])) {
         $iCourseID = $_POST['endCourse'];
-        echo $iCourseID.' '.$sUserID;
         $updateQ = $db->prepare(
             "UPDATE `course_progress` SET `courseCompleted`=1 WHERE userID = '$sUserID' AND courseID = '$iCourseID'");
         $updateQ->execute();

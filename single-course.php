@@ -1,9 +1,8 @@
 <?php 
-
+require_once('has-access.php');
  // Initiating database connection
  require_once('db/db.php');
 try{
-    session_start();
     $sUserID = $_SESSION['sUserId'];
     $iCourseID = $_GET['courseID'];
 
