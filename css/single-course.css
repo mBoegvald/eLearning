@@ -1,0 +1,18 @@
+.courseContainer {
+  width: 90%;
+  margin: 1rem auto;
+}
+
+video#courseVideo {
+  width: 100%;
+}
+
+form {
+  text-align: right;
+}
+
+@media only screen and (min-width: 1200px) {
+  .courseContainer {
+    width: 70%;
+  }
+}

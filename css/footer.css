@@ -89,7 +89,8 @@ footer input {
   .footer-container {
     grid-template-rows: 100fr;
     grid-template-columns: 20fr 10fr 10fr 25fr;
-    max-width: 1440px;
+    max-width: 70%;
     margin: 0 auto;
+    padding: 0.95rem 0;
   }
 }

@@ -102,7 +102,7 @@ nav {
 
   .navbar-collapse li {
     display: inline-block;
-    margin-right: 1rem;
+    margin-right: 5rem;
   }
 
   .navbar-collapse li:last-of-type {

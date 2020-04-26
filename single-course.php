@@ -6,10 +6,25 @@ try{
     $sUserID = $_SESSION['sUserId'];
     $iCourseID = $_GET['courseID'];
 
-    // $coursesQ = $db->prepare('SELECT * FROM course');
-    // $coursesQ->execute();
-    // $coursesData = $coursesQ->fetchAll();
+    // Fetch courses
+    $coursesQ = $db->prepare('SELECT * FROM course');
+    $coursesQ->execute();
+    $coursesData = $coursesQ->fetchAll();
 
+    $sCourseDiv = '';
+    foreach($coursesData as $singleCourse) {
+        if($iCourseID == $singleCourse->courseID)
+            $sCourseDiv .= "
+                <h1>$singleCourse->header</h1>
+                <P>$singleCourse->text</p>
+                <div class='videoContainer'>
+                    <video id='courseVideo' controls>
+                        <source src='$singleCourse->videoLink' type='video/mp4'>
+                    </video>
+                </div>";
+    }
+
+    // Fetch users progress
     $courseProgressQ = $db->prepare("SELECT * from course_progress");
     $courseProgressQ->execute();
     $courseProgressData = $courseProgressQ->fetchAll();
@@ -26,6 +41,8 @@ try{
         VALUES ('$iCourseID', 0,'$sUserID')");
         $userProgress->execute();
     }
+
+
 }catch(PDOException $ex){
     echo $ex;
 }
@@ -40,6 +57,7 @@ try{
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/courses.css">
+    <link rel="stylesheet" href="css/single-course.css">
     <link
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
       rel="stylesheet"
@@ -53,13 +71,14 @@ try{
 <body>
     <?php
         include_once("components/nav.php");
+        
     ?>
-    <video id="courseVideo" width="320" height="240" controls>
-        <source src="oke.mp4" type="video/mp4">
-    </video>
-        <form action="dashboard.php" method="POST">
-            <button type="submit" value="<?=$iCourseID?>" class="btn red-btn" name="endCourse">Course completed</button>
-        </form>
+        <div class='courseContainer'>
+            <?= $sCourseDiv; ?>
+            <form action="dashboard.php" method="POST">
+                <button type="submit" value="<?=$iCourseID?>" class="btn signup-button" name="endCourse">Course completed</button>
+            </form>
+        </div>
     <?php
         include_once("components/footer.html");
     ?>
