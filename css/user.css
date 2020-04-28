@@ -172,6 +172,9 @@
   cursor: pointer;
   color: #ec5d5e;
   margin: 10px 3px 5px 3px;
+  background-color:transparent;
+  text-align:left;
+  border:none;
 }
 
 #userProfileSettingsForm .delete-helper {
