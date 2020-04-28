@@ -1,13 +1,18 @@
 <?php
   require_once('has-access.php');
   // Initiating database connection
-    require_once('db/db.php');
-
+  require_once('db/db.php');
+  
+  $sUserID = $_SESSION['sUserId'];
+  echo $sUserID;
   // Validation
   if( isset($_POST['txtEmail']) && 
       isset($_POST['txtPassword']) &&
       isset($_POST['txtName'])
   ){
+    $updateQ = $db->prepare(
+      "UPDATE `course_progress` SET `courseCompleted`=1 WHERE userID = '$sUserID' AND courseID = '$iCourseID'");
+    $updateQ->execute();
   }
 
   // Testing database connection
@@ -59,7 +64,7 @@
         <label for="txtPassword">Password</label>
         <input name="txtPassword" type="password" placeholder="Password">
 
-        <p id="DeleteProfileBtn" href="#">Delete your account</p>
+        <button id="DeleteProfileBtn" href="#" onclick="showDeletePopup(); return false;">Delete your account</button>
         <p class="delete-helper">You will receive an email to bla bla blaa</p>
 
         <div class="profile-settings-form-btns">
@@ -72,9 +77,26 @@
     </div>
     
   </div>
+  <div id="DeleteProfileModal" class="modal">
+    <div class="modal-wrapper">
+      <p class="modal-text">Are you sure you want to permanently delete your profile?</p>
+      <div class="profile-settings-form-btns">
+            <button class="form-btn-secondary" onclick="showDeletePopup()">Cancel</button>
+            <button class="form-btn">Yes</button>
+      </div>
+  </div>
+  </div>
   <!-- <a href="signup.php">SIGN UP</a> -->
   <?php
         include_once("components/footer.html");
     ?>
+    <script>
+      function showDeletePopup() {
+       
+        document.querySelector('#DeleteProfileModal').classList.toggle("show");
+        console.log (document.querySelector('#DeleteProfileModal'));
+        
+      }
+    </script>
 </body>
 </html>
