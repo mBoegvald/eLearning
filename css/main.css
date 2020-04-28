@@ -91,6 +91,8 @@ main {
 .signup-button {
   background: #ec5d5e;
   border: 0.15rem solid #ec5d5e;
+  width: 171.13px;
+  margin-bottom: 1.5rem;
 }
 .read-more-button {
   background: transparent;
@@ -101,10 +103,17 @@ main {
   .intro-content {
     grid-template-columns: 10fr 10fr;
   }
+  .signup-button {
+    margin-bottom: 0rem;
+  }
 }
 
 @media screen and (min-width: 1140px) {
   .banner-content {
     grid-template-columns: 10fr 6fr;
+    padding: 6rem 0;
+  }
+  .intro-content {
+    padding: 6rem 0 8rem;
   }
 }

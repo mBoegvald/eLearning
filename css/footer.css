@@ -13,7 +13,7 @@ footer {
 .footer-container {
   display: grid;
   grid-template-columns: 100fr;
-  padding: 0.95rem 1.25rem;
+  padding: 1.95rem 1.25rem;
 }
 
 .footer-box {
@@ -79,18 +79,18 @@ footer input {
 }
 
 @media only screen and (min-width: 600px) {
-  .footer-container {
+  /* .footer-container {
     grid-template-columns: 50fr 50fr;
     grid-template-rows: 50fr 50fr;
-  }
+  } */
 }
 
 @media only screen and (min-width: 1000px) {
   .footer-container {
     grid-template-rows: 100fr;
-    grid-template-columns: 20fr 10fr 10fr 25fr;
-    max-width: 70%;
+    grid-template-columns: 10fr 10fr 10fr 10fr;
+    max-width: 85%;
     margin: 0 auto;
-    padding: 0.95rem 0;
+    padding: 2.95rem 0;
   }
 }
