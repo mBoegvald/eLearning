@@ -18,7 +18,7 @@
       isset($_POST['txtName'])
   ){
     $updateQ = $db->prepare(
-      "UPDATE `course_progress` SET `courseCompleted`=1 WHERE userID = '$sUserID' AND courseID = '$iCourseID'");
+      "UPDATE user WHERE userID = '$sUserID'");
     $updateQ->execute();
   }
 
