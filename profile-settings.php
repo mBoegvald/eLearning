@@ -81,8 +81,9 @@
     <div class="modal-wrapper">
       <p class="modal-text">Are you sure you want to permanently delete your profile?</p>
       <div class="profile-settings-form-btns">
-            <button class="form-btn-secondary" onclick="showDeletePopup()">Cancel</button>
-            <button class="form-btn">Yes</button>
+        <button class="form-btn-secondary" onclick="window.location.href = 'delete-profile.php'";>Yes</button>
+        <button class="form-btn" onclick="showDeletePopup()">Cancel</button>
+           
       </div>
   </div>
   </div>
