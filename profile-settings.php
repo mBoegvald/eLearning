@@ -5,6 +5,13 @@
   
   $sUserID = $_SESSION['sUserId'];
   echo $sUserID;
+
+      $q = $db->prepare("SELECT * FROM user WHERE userID = '$sUserID'");
+      $q->execute();
+
+      $data = $q->fetchAll();
+      $foundUser = $data[0];
+
   // Validation
   if( isset($_POST['txtEmail']) && 
       isset($_POST['txtPassword']) &&
@@ -53,16 +60,22 @@
 
         <div style="display:grid">
           <label for="txtName">Name</label>
-          <input name="txtName" type="text" placeholder="Name">
+          <input name="txtName" type="text" placeholder="Name" value="<?= "$foundUser->firstname" ?>" disabled>
+          <button class="change-btn" onclick="toggleInput(txtName); return false;">Change</button>
+
           <label for="txtLastName">Lastname</label>
-          <input name="txtLastName" type="text" placeholder="Last Name">
+          <input name="txtLastName" type="text" placeholder="Last Name" value="<?= "$foundUser->lastname" ?>" disabled>
+          <button class="change-btn" onclick="toggleInput(txtLastName); return false;">Change</button>
+
         </div>
 
         <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="text" placeholder="Email">
+        <input name="txtEmail" type="text" placeholder="Email" value="<?= "$foundUser->email" ?>" disabled>
+        <button class="change-btn" onclick="toggleInput(txtEmail); return false;">Change</button>
 
         <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password">
+        <input name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>" disabled>
+        <button class="change-btn" onclick="toggleInput(txtPassword); return false;">Change</button>
 
         <button id="DeleteProfileBtn" href="#" onclick="showDeletePopup(); return false;">Delete your account</button>
         <p class="delete-helper">You will receive an email to bla bla blaa</p>
@@ -93,6 +106,17 @@
         include_once("components/footer.html");
     ?>
     <script>
+
+      function toggleInput(input) {
+        if (!input.disabled) {
+          input.disabled = true;
+        } else if (input.disabled) {
+          input.disabled = false;
+        }
+        // document.querySelector('')
+        // thisdisabled = true;
+      }
+
       function showDeletePopup() {
        
         document.querySelector('#DeleteProfileModal').classList.toggle("show");

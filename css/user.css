@@ -245,3 +245,21 @@
 .modal-text {
   text-align:center;
 }
+
+/* Stlying disabled input fields on profile settings */
+
+input:disabled {
+  background-color: #F1F1F1 !important;
+}
+
+.change-btn {
+  color:red;
+  background-color:transparent;
+  border:none;
+  text-align:right;
+  cursor:pointer;
+}
+
+#userProfileSettingsForm input {
+  margin-bottom: 0 !important;
+}
