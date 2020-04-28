@@ -71,16 +71,16 @@
 
         <div style="display:grid">
           <label for="txtFirstName">Name</label>
-          <input name="txtFirstName" type="text" placeholder="First Name">
+          <input name="txtFirstName" type="text" placeholder="First Name" required>
           <label for="txtLastName">Lastname</label>
-          <input name="txtLastName" type="text" placeholder="Last Name">
+          <input name="txtLastName" type="text" placeholder="Last Name" required>
         </div>
 
         <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="text" placeholder="Email">
+        <input name="txtEmail" type="email" placeholder="Email" required>
 
         <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password">
+        <input name="txtPassword" type="password" placeholder="Password" required>
 
         <button class="form-btn">Sign Up</button>
         <a class="login-helper" href="login.php">Already have an account? Login.</a>
