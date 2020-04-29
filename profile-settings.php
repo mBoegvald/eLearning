@@ -4,7 +4,6 @@
   require_once('db/db.php');
   
   $sUserID = $_SESSION['sUserId'];
-  echo $sUserID;
 
       $q = $db->prepare("SELECT * FROM user WHERE userID = '$sUserID'");
       $q->execute();
@@ -15,7 +14,8 @@
   // Validation
   if( isset($_POST['txtEmail']) && 
       isset($_POST['txtPassword']) &&
-      isset($_POST['txtName'])
+      isset($_POST['txtFirstName']) &&
+      isset($_POST['txtLastName'])
   ){
     $updateQ = $db->prepare(
       "UPDATE user WHERE userID = '$sUserID'");
@@ -77,11 +77,11 @@
         <input name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>" disabled>
         <button class="change-btn" onclick="toggleInput(txtPassword); return false;">Change</button>
 
-        <button id="DeleteProfileBtn" href="#" onclick="showDeletePopup(); return false;">Delete your account</button>
+        <button id="DeleteProfileBtn" onclick="showDeletePopup(); return false;">Delete your account</button>
         <p class="delete-helper">You will receive an email to bla bla blaa</p>
 
         <div class="profile-settings-form-btns">
-          <button class="form-btn-secondary">Cancel</button>
+          <button class="form-btn-secondary">Go Back</button>
           <button class="form-btn">Save</button>
         </div>
 
@@ -113,8 +113,6 @@
         } else if (input.disabled) {
           input.disabled = false;
         }
-        // document.querySelector('')
-        // thisdisabled = true;
       }
 
       function showDeletePopup() {
