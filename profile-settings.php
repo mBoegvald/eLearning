@@ -1,4 +1,5 @@
 <?php
+  require_once('has-access.php');
   // Initiating database connection
     require_once('db/db.php');
 

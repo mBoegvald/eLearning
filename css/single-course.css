@@ -1,0 +1,27 @@
+.courseContainer {
+  width: 90%;
+  margin: 1rem auto;
+}
+
+video#courseVideo {
+  width: 100%;
+}
+
+.courseContainer p {
+  word-break: break-all;
+  margin-bottom: 0.5rem;
+}
+
+form {
+  text-align: right;
+}
+
+@media only screen and (min-width: 1200px) {
+  .courseContainer {
+    width: 70%;
+  }
+
+  .courseContainer p {
+    width: 40%;
+  }
+}

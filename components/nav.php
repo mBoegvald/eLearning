@@ -2,11 +2,9 @@
   
   // Get the users status/mode
   $mode = 'none';
-  if(isset($_SESSION['bAdmin'])){
-      if($_SESSION['bAdmin']){
-        $mode = 'admin';
-      }else{
-          $mode = 'user';
+  if(isset($_SESSION['sUserId'])){
+      if($_SESSION['sUserId']){
+        $mode = 'user';
       }
   }
 
@@ -24,27 +22,28 @@
     'user' => [
       '<div class="navbar-collapse">',
         '<ul>',
-          '<li><a href="#">Dashboard</a></li>',
-          '<li><a href="#">Profile</a></li>',
-          '<li><a href="#" class="red-btn">Log out</a></li>',
-        '</ul>',
-      '</div>'
-    ],
-    'admin' => [
-      '<div class="navbar-collapse">',
-        '<ul>',
-          '<li><a href="#">Dashboard</a></li>',
-          '<li><a href="#">Profile</a></li>',
-          '<li><a href="#" class="red-btn">Log out</a></li>',
+          '<li><a href="dashboard.php">Dashboard</a></li>',
+          '<li><a href="profile-settings.php">Profile</a></li>',
+          '<li><a href="logout.php" class="red-btn">Log out</a></li>',
         '</ul>',
       '</div>'
     ]
+    // ,
+    // 'admin' => [
+    //   '<div class="navbar-collapse">',
+    //     '<ul>',
+    //       '<li><a href="#">Dashboard</a></li>',
+    //       '<li><a href="#">Profile</a></li>',
+    //       '<li><a href="#" class="red-btn">Log out</a></li>',
+    //     '</ul>',
+    //   '</div>'
+    // ]
   ];
   ?>
     <nav>
       <div id="mobile-container">
       <div class="logo">
-          <a href="#">E-Learning</a>
+          <a href="index.php">E-Learning</a>
         </div>
         <div class="navbar-toggler">
           <div class="bar1"></div>
