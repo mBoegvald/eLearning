@@ -11,5 +11,3 @@ if(isset($_SESSION['sUserId'])){
 
 echo "user Deleted successfully";
 header('Location: index.php');
-
-?>

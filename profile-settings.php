@@ -2,30 +2,35 @@
   require_once('has-access.php');
   // Initiating database connection
   require_once('db/db.php');
-  
-  $sUserID = $_SESSION['sUserId'];
+  try{
+    $sUserID = $_SESSION['sUserId'];
 
-      $q = $db->prepare("SELECT * FROM user WHERE userID = '$sUserID'");
-      $q->execute();
+    // Validation
+    if( isset($_POST['txtEmail']) && 
+        isset($_POST['txtPassword']) &&
+        isset($_POST['txtFirstName']) &&
+        isset($_POST['txtLastName'])
+    ){
+      $firstname = $_POST['txtFirstName'];
+      $lastname = $_POST['txtLastName'];
+      $email = $_POST['txtEmail'];
+      $password = $_POST['txtPassword'];
+      
+        $updateQ = $db->prepare(
+        "UPDATE `user` SET `firstname`='$firstname', `lastname`='$lastname', `email`='$email', `password`='$password' 
+        WHERE userID='$sUserID'");
+        $updateQ->execute();
 
-      $data = $q->fetchAll();
-      $foundUser = $data[0];
+    }
 
-  // Validation
-  if( isset($_POST['txtEmail']) && 
-      isset($_POST['txtPassword']) &&
-      isset($_POST['txtFirstName']) &&
-      isset($_POST['txtLastName'])
-  ){
-    $updateQ = $db->prepare(
-      "UPDATE user WHERE userID = '$sUserID'");
-    $updateQ->execute();
+    $q = $db->prepare("SELECT * FROM user WHERE userID = '$sUserID'");
+    $q->execute();
+    $data = $q->fetchAll();
+
+    $foundUser = $data[0];
+  }catch(PDOException $ex) {
+    echo $ex;
   }
-
-  // Testing database connection
-  // $sql = "INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES (NULL, 'B', '@B', 'passB')";
-  // $db->exec($sql);
-
 
 ?>
 
@@ -59,26 +64,20 @@
         <h1 class="form-h1">Profile Settings</h1>
 
         <div style="display:grid">
-          <label for="txtName">Name</label>
-          <input name="txtName" type="text" placeholder="Name" value="<?= "$foundUser->firstname" ?>" disabled>
-          <button class="change-btn" onclick="toggleInput(txtName); return false;">Change</button>
+          <label for="txtFirstName">Firstname</label>
+          <input name="txtFirstName" type="text" placeholder="First Name" value="<?= "$foundUser->firstname" ?>">
 
           <label for="txtLastName">Lastname</label>
-          <input name="txtLastName" type="text" placeholder="Last Name" value="<?= "$foundUser->lastname" ?>" disabled>
-          <button class="change-btn" onclick="toggleInput(txtLastName); return false;">Change</button>
-
+          <input name="txtLastName" type="text" placeholder="Last Name" value="<?= "$foundUser->lastname" ?>">
         </div>
 
         <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="text" placeholder="Email" value="<?= "$foundUser->email" ?>" disabled>
-        <button class="change-btn" onclick="toggleInput(txtEmail); return false;">Change</button>
+        <input name="txtEmail" type="text" placeholder="Email" value="<?= "$foundUser->email" ?>">
 
         <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>" disabled>
-        <button class="change-btn" onclick="toggleInput(txtPassword); return false;">Change</button>
+        <input name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>">
 
-        <button id="DeleteProfileBtn" onclick="showDeletePopup(); return false;">Delete your account</button>
-        <p class="delete-helper">You will receive an email to bla bla blaa</p>
+        <button id="deleteProfileBtn" onclick="showDeletePopup(); return false;">Delete your account</button>
 
         <div class="profile-settings-form-btns">
           <button class="form-btn-secondary">Go Back</button>
@@ -90,7 +89,7 @@
     </div>
     
   </div>
-  <div id="DeleteProfileModal" class="modal">
+  <div id="deleteProfileModal" class="modal">
     <div class="modal-wrapper">
       <p class="modal-text">Are you sure you want to permanently delete your profile?</p>
       <div class="profile-settings-form-btns">
@@ -105,22 +104,6 @@
   <?php
         include_once("components/footer.html");
     ?>
-    <script>
-
-      function toggleInput(input) {
-        if (!input.disabled) {
-          input.disabled = true;
-        } else if (input.disabled) {
-          input.disabled = false;
-        }
-      }
-
-      function showDeletePopup() {
-       
-        document.querySelector('#DeleteProfileModal').classList.toggle("show");
-        console.log (document.querySelector('#DeleteProfileModal'));
-        
-      }
-    </script>
+  <script src='profile-settings.js'></script>
 </body>
 </html>

@@ -168,39 +168,39 @@
   margin-left: 10px;
 }
 
-#DeleteProfileBtn {
+#deleteProfileBtn {
   cursor: pointer;
   color: #ec5d5e;
   margin: 10px 3px 5px 3px;
-  background-color:transparent;
-  text-align:left;
-  border:none;
+  background-color: transparent;
+  text-align: left;
+  border: none;
 }
 
 #userProfileSettingsForm .delete-helper {
   margin: 5px 3px 10px 3px;
 }
 
-#DeleteProfileModal {
-  position:fixed;
-  display:grid;
-  left:0;
-  top:0;
-  width:100%;
-  height:100%;
-  z-index:10000;
-  background-color:#F1F1F1;
+#deleteProfileModal {
+  position: fixed;
+  display: grid;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  background-color: #f1f1f1;
 }
 
-#DeleteProfileModal.modal {
-  visibility:hidden;
+#deleteProfileModal.modal {
+  visibility: hidden;
 }
 
-#DeleteProfileModal.show {
-  visibility:visible;
+#deleteProfileModal.show {
+  visibility: visible;
 }
 
-#DeleteProfileModal .form-btn {
+#deleteProfileModal .form-btn {
   border: none;
   margin-top: 10px;
   padding: 10px;
@@ -223,41 +223,41 @@
   display: flex;
 }
 
-#DeleteProfileModal .profile-settings-form-btns {
+#deleteProfileModal .profile-settings-form-btns {
   display: flex;
 }
 
-#DeleteProfileModal .profile-settings-form-btns .form-btn-secondary {
+#deleteProfileModal .profile-settings-form-btns .form-btn-secondary {
   margin-right: 10px;
 }
 
-#DeleteProfileModal .profile-settings-form-btns .form-btn {
+#deleteProfileModal .profile-settings-form-btns .form-btn {
   margin-left: 10px;
 }
 
 .modal-wrapper {
-  max-width:800px;
-  width:100%;
-  align-self:center;
-  justify-self:center;
+  max-width: 800px;
+  width: 100%;
+  align-self: center;
+  justify-self: center;
 }
 
 .modal-text {
-  text-align:center;
+  text-align: center;
 }
 
 /* Stlying disabled input fields on profile settings */
 
 input:disabled {
-  background-color: #F1F1F1 !important;
+  background-color: #f1f1f1 !important;
 }
 
 .change-btn {
-  color:red;
-  background-color:transparent;
-  border:none;
-  text-align:right;
-  cursor:pointer;
+  color: red;
+  background-color: transparent;
+  border: none;
+  text-align: right;
+  cursor: pointer;
 }
 
 #userProfileSettingsForm input {
