@@ -22,6 +22,7 @@
         $_SESSION['sEmail'] = $sUserEmail;
         $_SESSION['sFirstName'] = $foundUser->firstname;
         $_SESSION['sUserId'] = $foundUser->userID;
+        
 
         echo "Hello, User ID: $foundUser->userID. Your Name is $foundUser->firstname, your email is $sUserEmail and your password is correct.";
         header('Location: dashboard.php');
@@ -83,10 +84,10 @@
         <h1 class="form-h1">Login</h1>
 
         <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="text" placeholder="Email">
+        <input name="txtEmail" type="email" placeholder="Email" required>
 
         <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password">
+        <input name="txtPassword" type="password" placeholder="Password" required>
         
         <button class="form-btn">Log In</button>
         <a class="login-helper" href="signup.php">Don't have an account? Sign Up.</a>
