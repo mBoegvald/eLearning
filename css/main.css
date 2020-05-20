@@ -1,3 +1,14 @@
+:root {
+  --main-color: #5e5657;
+  --secondary-color: #f8bd9e;
+  --tertiary-color: #fcded0;
+  --white: #fff;
+  --black: #000;
+  --emphasize-color: #f7bd9e;
+  --font-header: "Lato", sans-serif;
+  --font-text: "Open Sans", sans-serif;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,110 +21,154 @@ body {
   font-size: 16px; /* px fallback */
   font-size: 1.6rem; /* default font-size for document */
   line-height: 1.5; /* a nice line-height */
-}
-
-h1,
-h2,
-h3 {
-  font-family: "Lato", sans-serif;
-  color: #213159;
-  font-weight: 400;
-}
-
-p {
-  font-family: "Open Sans", sans-serif;
-}
-
-main {
   width: 100%;
-  background-image: url(../pics/marble2.jpg);
+  font-family: var(--font-text);
 }
 
-.intro-content {
+/* LANDING */
+
+#landing {
+  background-color: var(--main-color);
+  height: 100vh;
+}
+
+.contentContainer {
+  max-width: 1440px;
+  padding: 4.5rem 4.5rem;
+}
+
+.mainContent {
+  border: 2px solid var(--white);
+  color: var(--white);
+  padding: 3.5rem 2rem 5rem;
+  text-align: center;
+}
+
+.mainContent h1 {
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  font-weight: 300;
+  font-family: var(--font-header);
+}
+.emphasize {
+  color: var(--emphasize-color);
+  font-weight: bold;
+}
+
+.mainContent p {
+  max-width: 80%;
+  margin: 0 auto;
+  margin-bottom: 3.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.mainContent .btn {
+  background-color: var(--emphasize-color);
+  color: var(--main-color);
+}
+
+/* LANDING END */
+
+/* INFO SECTION */
+
+#information {
+  background-color: var(--secondary-color);
+}
+
+.info-content {
   display: grid;
   grid-template-columns: 10fr;
   grid-gap: 5rem;
-  width: 80%;
   margin: 0 auto;
-  padding: 5rem 0 6rem;
+  padding: 4.5rem 0 6rem;
 }
 
-.intro-element-header {
+.info-element-header {
   display: grid;
   grid-template-columns: 2fr 10fr;
+  margin-bottom: 0.5rem;
 }
-.intro-element-header img {
-  width: 7rem;
+.info-element-header img {
+  width: 9rem;
 }
-.intro-element-header h1 {
-  align-self: center;
-  font-size: 3rem;
-}
-
-/* BANNER */
-
-#banner {
-  background: linear-gradient(180deg, #3d6098 0%, rgba(61, 96, 152, 0) 100%),
-    rgba(61, 96, 152, 0.75);
-  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
-  color: #fff;
+.info-element-header h1 {
+  align-self: end;
+  font-family: var(--font-header);
+  font-size: 2.8rem;
+  font-weight: 500;
 }
 
-.banner-content {
-  display: grid;
-  grid-template-columns: 10fr;
-  grid-gap: 3rem;
-  width: 80%;
+.info-element-text {
+  font-size: 1.8rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+hr {
   margin: 0 auto;
-  padding: 4rem 0;
+  width: 70%;
+  border: 0.5px solid var(--main-color);
 }
 
-.banner-text h2 {
-  color: #fff;
-  font-size: 3rem;
+/* INFO END */
+
+/* REVIEWS */
+
+#reviews {
+  background-color: var(--tertiary-color);
 }
-.banner-buttons {
+#reviews h1 {
+  max-width: 80%;
+  margin: 0 auto;
   text-align: center;
-  align-self: center;
+  font-family: var(--font-header);
+  font-size: 2.8rem;
+  font-weight: 400;
+}
+#reviews .mainContent {
+  border-color: var(--secondary-color);
+  margin-top: 2rem;
+}
+#reviews .mainContent h1 {
+  font-style: italic;
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--black);
+}
+#reviews .mainContent p {
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.8);
 }
 
-/* COURSES */
+/* REVIEWS END */
+
+/* BUTTONS */
+.btn {
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  border: 0;
+  border-radius: 0.5rem;
+  padding: 1rem 5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
 
 /* BUTTONS */
 
-.btn {
-  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
-  border-radius: 0.5rem;
-  color: #ffffff;
-  padding: 1rem 5rem;
-  cursor: pointer;
-}
-.signup-button {
-  background: #ec5d5e;
-  border: 0.15rem solid #ec5d5e;
-  width: 171.13px;
-  margin-bottom: 1.5rem;
-}
-.read-more-button {
-  background: transparent;
-  border: 0.15rem solid #ffffff;
-}
+/* MEDIA QUERIES */
 
-@media screen and (min-width: 600px) {
-  .intro-content {
+/* @media screen and (min-width: 600px) {
+  .info-content {
     grid-template-columns: 10fr 10fr;
-  }
-  .signup-button {
-    margin-bottom: 0rem;
   }
 }
 
 @media screen and (min-width: 1140px) {
-  .banner-content {
-    grid-template-columns: 10fr 6fr;
-    padding: 6rem 0;
-  }
-  .intro-content {
+  .info-content {
     padding: 6rem 0 8rem;
   }
-}
+} */
