@@ -6,7 +6,6 @@
 nav {
   width: 100%;
   background-color: var(--main-color);
-  border-bottom: 2px solid var(--white);
 }
 
 #mobile-container {

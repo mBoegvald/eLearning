@@ -9,47 +9,21 @@
     // Defining Post Variables for sign up
     $sUserEmail = $_POST['txtEmail'];
     $sUserPassword = $_POST['txtPassword'];
-      // Inserting new user into crud database
-
-      $q = $db->prepare("SELECT * FROM user WHERE email = '$sUserEmail'");
-      $q->execute();
-
-      $data = $q->fetchAll();
-      $foundUser = $data[0];
-
-      if($foundUser->password == $_POST['txtPassword']) {
-        session_start();
-        $_SESSION['sEmail'] = $sUserEmail;
-        $_SESSION['sFirstName'] = $foundUser->firstname;
-        $_SESSION['sUserId'] = $foundUser->userID;
-        
-
-        echo "Hello, User ID: $foundUser->userID. Your Name is $foundUser->firstname, your email is $sUserEmail and your password is correct.";
-        header('Location: dashboard.php');
-        exit();
-      }
+    $q = $db->prepare("SELECT * FROM user WHERE email = '$sUserEmail'");
+    $q->execute();
+    $data = $q->fetchAll();
+    $foundUser = $data[0];
+    if($foundUser->password == $_POST['txtPassword']) {
+      session_start();
+      $_SESSION['sEmail'] = $sUserEmail;
+      $_SESSION['sFirstName'] = $foundUser->firstname;
+      $_SESSION['sUserId'] = $foundUser->userID;
+      echo "Hello, User ID: $foundUser->userID. Your Name is $foundUser->firstname, your email is $sUserEmail and your password is correct.";
+      header('Location: dashboard.php');
+      exit();
+    }
       
-      // print_r($data);
-
-      // if ($db) {
-      //   print_r($db->name);
-      //   exit();
-      // }
-      
-
-      
-      // echo "User has been found successfully";
-      // To start using sessions/cookies 
-      // You can put anything in the session
-
-      // header('Location: admin-dashboard.php');
-      // exit();
   }
-
-  // Testing database connection
-  // $sql = "INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES (NULL, 'B', '@B', 'passB')";
-  // $db->exec($sql);
-
 
 ?>
 
@@ -58,7 +32,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Login</title>
+  <title>Login</title>
     <link rel="stylesheet" href="css/user.css">
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/nav.css">
@@ -76,8 +50,25 @@
 <body>
   <?php
           include_once("components/nav.php");
-      ?>
-  <div id="userLoginContainer">
+  ?>
+  <main id="login">
+    <div class="contentContainer">
+      <form class="login-form" action="login.php" method="POST">
+        <h1 class="form-h1">Login</h1>
+        
+        <label for="txtEmail">Email</label>
+        <input name="txtEmail"  required>
+
+        <label for="txtPassword">Password</label>
+        <input name="txtPassword" type="password" required>
+
+        <button class="btn form-btn">Log In</button>
+        <a class="login-helper" href="signup.php">Don't have an account? Sign Up.</a>
+      </form>
+      <a class="back-btn" href="index.php">← Back to ELEARN</a>
+    </div>
+  </main>
+  <!-- <div id="userLoginContainer">
     <div id="userLoginBox">
 
       <form id="userLoginForm" class="user-form" action="login.php" method="POST">
@@ -95,10 +86,10 @@
       <a class="back-btn" href="index.php">← Back to ELEARN</a>
     </div>
     
-  </div>
+  </div> -->
   <!-- <a href="signup.php">SIGN UP</a> -->
   <?php
-        include_once("components/footer.html");
+        // include_once("components/footer.html");
     ?>
 </body>
 </html>

@@ -29,6 +29,7 @@ body {
 
 #landing {
   background-color: var(--main-color);
+  border-top: 2px solid var(--white);
 }
 
 .contentContainer {
