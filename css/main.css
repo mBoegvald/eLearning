@@ -29,12 +29,14 @@ body {
 
 #landing {
   background-color: var(--main-color);
-  height: 100vh;
 }
 
 .contentContainer {
+  position: relative;
   max-width: 1440px;
   padding: 4.5rem 4.5rem;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .mainContent {
@@ -161,14 +163,30 @@ hr {
 
 /* MEDIA QUERIES */
 
-/* @media screen and (min-width: 600px) {
+@media screen and (min-width: 600px) {
   .info-content {
-    grid-template-columns: 10fr 10fr;
+    grid-template-columns: 10fr 0 10fr;
   }
 }
 
 @media screen and (min-width: 1140px) {
+  .mainContent {
+    margin: 5rem 25rem 0;
+    padding-bottom: 15rem;
+  }
+  .mainContent h1 {
+    font-size: 8rem;
+  }
+  .mainContent p {
+    max-width: 55%;
+  }
+
   .info-content {
     padding: 6rem 0 8rem;
   }
-} */
+
+  .btn {
+    padding: 1rem 8rem;
+    font-size: 2.5rem;
+  }
+}

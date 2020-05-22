@@ -1,0 +1,41 @@
+.icons {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 5rem;
+}
+#play {
+  top: 15%;
+  left: 5%;
+  transform: rotate(-20deg);
+  width: 4rem;
+}
+#computer {
+  top: 40%;
+  left: 5%;
+  transform: rotate(20deg);
+  width: 6rem;
+}
+#brain {
+  top: 70%;
+  left: 5%;
+  transform: rotate(-20deg);
+}
+#book {
+  top: 17%;
+  right: 3%;
+  transform: rotate(-30deg);
+  width: 6rem;
+}
+#headphones {
+  top: 42%;
+  right: 3%;
+  transform: rotate(10deg);
+  width: 6rem;
+}
+
+#mouse {
+  top: 72%;
+  right: 3%;
+  transform: rotate(25deg);
+  width: 3.5rem;
+}
