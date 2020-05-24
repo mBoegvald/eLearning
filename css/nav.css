@@ -18,6 +18,7 @@ nav {
 .logo img {
   width: 2.5rem;
   margin-right: 1rem;
+  vertical-align: bottom;
 }
 
 .logo a {
