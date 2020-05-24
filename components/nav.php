@@ -43,7 +43,7 @@
     <nav>
       <div id="mobile-container">
       <div class="logo">
-          <a href="index.php">E-Learning</a>
+          <a href="index.php"><img src="./pics/lightbulb.png" alt="">Learn<span class="emphasize">DB</span></a>
         </div>
         <div class="navbar-toggler">
           <div class="bar1"></div>
@@ -52,9 +52,10 @@
         </div>
       </div>
       <?php 
-      foreach ($navOptions[$mode] as $option){
-        echo $option;
-      }
+
+      // foreach ($navOptions[$mode] as $option){
+      //   echo $option;
+      // }
       ?>
     </nav>
 
