@@ -14,8 +14,9 @@
     'none' => [
       '<div class="navbar-collapse">',
         '<ul>',
-          '<li><a href="signup.php" class="red-btn">Sign up</a></li>',
-          '<li><a href="login.php" class="red-btn">Login</a></li>',
+          '<li><a href="dashboard.php">Courses</a></li>',
+          '<li><a href="login.php">Login</a></li>',
+          '<li><a href="signup.php" class="nav-btn">Sign up</a></li>',
         '</ul>',
       '</div>'
     ],
@@ -24,7 +25,7 @@
         '<ul>',
           '<li><a href="dashboard.php">Dashboard</a></li>',
           '<li><a href="profile-settings.php">Profile</a></li>',
-          '<li><a href="logout.php" class="red-btn">Log out</a></li>',
+          '<li><a href="logout.php" class="nav-btn">Log out</a></li>',
         '</ul>',
       '</div>'
     ]
@@ -41,6 +42,7 @@
   ];
   ?>
     <nav>
+      <div class="nav-container">
       <div id="mobile-container">
         <div class="logo">
           <a href="index.php"><img src="./pics/lightbulb.png" alt="">Learn<span class="emphasize">DB</span></a>
@@ -52,11 +54,11 @@
         </div>
       </div>
       <?php 
-
       foreach ($navOptions[$mode] as $option){
         echo $option;
       }
       ?>
+      </div>
     </nav>
 
     <script>

@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/icons.css" />
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/courses.css">
     <!-- <link
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
       rel="stylesheet"
@@ -25,12 +24,12 @@
     ?>
     <main id="landing">
         <div class="contentContainer">
-        <img id="play" class="icons" src="pics/play.png" alt="">
-        <img id="computer" class="icons" src="pics/computer.png" alt="">
-        <img id="brain" class="icons" src="pics/brain.png" alt="">
-        <img id="book" class="icons" src="pics/book.png" alt="">
-        <img id="headphones" class="icons" src="pics/headphones.png" alt="">
-        <img id="mouse" class="icons" src="pics/mouse.png" alt="">
+            <img id="play" class="icons" src="pics/play.png" alt="">
+            <img id="computer" class="icons" src="pics/computer.png" alt="">
+            <img id="brain" class="icons" src="pics/brain.png" alt="">
+            <img id="book" class="icons" src="pics/book.png" alt="">
+            <img id="headphones" class="icons" src="pics/headphones.png" alt="">
+            <img id="mouse" class="icons" src="pics/mouse.png" alt="">
             <div class="mainContent">
                 <h1><span class="emphasize">Learn</span> how<br> to build<br> <span class="emphasize">databases</span></h1>
                 <p>Aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est. t. </p>
