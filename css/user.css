@@ -1,50 +1,14 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Lato;
-}
-
 #login,
-#signup {
+#signup,
+#profile {
   background-color: var(--tertiary-color);
-}
-
-.wrapper {
-  width: 100%;
-  max-width: 1600px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 5px;
-  background-color: #f0f1f2;
-}
-
-.red-btn {
-  background-color: #dc3545;
-  color: white;
-  border-radius: 5px;
-}
-
-.form-heading {
-  display: flex;
-  justify-content: space-between;
-}
-
-.x-btn {
-  font-size: 20px;
-  width: 50px !important;
-  border-radius: 5px;
-  cursor: pointer;
-  display: grid;
-  align-items: center;
-  justify-items: center;
 }
 
 /* LOGIN CONTAINER */
 
 .login-form,
 .signup-form,
-#userProfileSettingsForm {
+.profile-form {
   display: grid;
   padding: 2rem 4rem;
   border: 1px solid var(--main-color);
@@ -53,7 +17,7 @@
 
 .login-form input,
 .signup-form input,
-#userProfileSettingsForm input {
+.profile-form input {
   display: grid;
   width: 100%;
   margin-bottom: 1rem;
@@ -66,10 +30,18 @@
 
 .login-form .form-btn,
 .signup-form .form-btn,
-#userProfileSettingsForm .form-btn {
+.profile-form .form-btn {
   margin-top: 1rem;
   background-color: var(--secondary-color);
   color: var(--main-color);
+}
+
+.profile-form .form-btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 .back-btn {
@@ -96,38 +68,7 @@
   color: var(--main-color);
 }
 
-.form-btn-secondary {
-  border: none;
-  margin-top: 10px;
-  padding: 10px;
-  font-weight: 400;
-  background: #ffffff;
-  border: 3px solid #ec5d5e;
-  box-sizing: border-box;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  color: #ec5d5e;
-  width: 50%;
-  height: 50px !important;
-  justify-self: right;
-  padding: 5px;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-#userProfileSettingsForm .profile-settings-form-btns {
-  display: flex;
-}
-
-#userProfileSettingsForm .profile-settings-form-btns .form-btn-secondary {
-  margin-right: 10px;
-}
-
-#userProfileSettingsForm .profile-settings-form-btns .form-btn {
-  margin-left: 10px;
-}
-
-#DeleteProfileBtn {
+.deleteProfileBtn {
   cursor: pointer;
   color: #ec5d5e;
   margin: 10px 3px 5px 3px;
@@ -135,12 +76,12 @@
   text-align: left;
   border: none;
 }
-
-#userProfileSettingsForm .delete-helper {
-  margin: 5px 3px 10px 3px;
+.profile-settings-form-btns {
+  display: flex;
+  justify-content: space-between;
 }
 
-#DeleteProfileModal {
+#deleteProfileModal {
   position: fixed;
   display: grid;
   left: 0;
@@ -151,15 +92,15 @@
   background-color: #f1f1f1;
 }
 
-#DeleteProfileModal.modal {
+#deleteProfileModal.modal {
   visibility: hidden;
 }
 
-#DeleteProfileModal.show {
+#deleteProfileModal.show {
   visibility: visible;
 }
 
-#DeleteProfileModal .form-btn {
+#deleteProfileModal .form-btn {
   border: none;
   margin-top: 10px;
   padding: 10px;
@@ -178,19 +119,15 @@
   cursor: pointer;
 }
 
-.profile-settings-form-btns {
+#deleteProfileModal .profile-settings-form-btns {
   display: flex;
 }
 
-#DeleteProfileModal .profile-settings-form-btns {
-  display: flex;
-}
-
-#DeleteProfileModal .profile-settings-form-btns .form-btn-secondary {
+#deleteProfileModal .profile-settings-form-btns .form-btn-secondary {
   margin-right: 10px;
 }
 
-#DeleteProfileModal .profile-settings-form-btns .form-btn {
+#deleteProfileModal .profile-settings-form-btns .form-btn {
   margin-left: 10px;
 }
 
@@ -221,4 +158,12 @@ input:disabled {
 
 #userProfileSettingsForm input {
   margin-bottom: 0 !important;
+}
+
+@media screen and (min-width: 600px) {
+  .form-name-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
 }

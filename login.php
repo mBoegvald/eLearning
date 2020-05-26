@@ -62,28 +62,9 @@
       <a class="back-btn" href="index.php">← Back to ELEARN</a>
     </div>
   </main>
-  <!-- <div id="userLoginContainer">
-    <div id="userLoginBox">
-
-      <form id="userLoginForm" class="user-form" action="login.php" method="POST">
-        <h1 class="form-h1">Login</h1>
-
-        <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="email" placeholder="Email" required>
-
-        <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password" required>
-        
-        <button class="form-btn">Log In</button>
-        <a class="login-helper" href="signup.php">Don't have an account? Sign Up.</a>
-      </form>
-      <a class="back-btn" href="index.php">← Back to ELEARN</a>
-    </div>
-    
-  </div> -->
-  <!-- <a href="signup.php">SIGN UP</a> -->
+  
   <?php
-        // include_once("components/footer.html");
+        include_once("components/footer.html");
     ?>
 </body>
 </html>

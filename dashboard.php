@@ -10,8 +10,6 @@ if(isset($_SESSION['sUserId'])){
             "UPDATE `course_progress` SET `courseCompleted`=1 WHERE userID = '$sUserID' AND courseID = '$iCourseID'");
         $updateQ->execute();
     }
-}else{  
-    $sFirstName = "";
 }
 
 ?>
@@ -33,7 +31,13 @@ if(isset($_SESSION['sUserId'])){
     <?php include_once("components/nav.php");?>
     <main id="courses">
         <div class="contentContainer">
-            <div class="courses-intro"><h1>Welcome<?=" ".$sFirstName?>, what do you want to learn today?</h1>
+            <div class="courses-intro"><h1>Welcome<?php 
+                    if(!isset($sFirstName)){
+                        echo "";
+                    }if(isset($sFirstName)){
+                        echo " ".$sFirstName;
+                    }
+                ?>, what do you want to learn today?</h1>
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut aut inventore exercitationem necessitatibus repellendus mollitia ratione iure debitis, fuga est cupiditate eum, quasi velit praesentium ad corrupti modi aperiam dolore!
                 </p>

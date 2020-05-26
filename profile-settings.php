@@ -5,27 +5,28 @@
   
   $sUserID = $_SESSION['sUserId'];
 
-      $q = $db->prepare("SELECT * FROM user WHERE userID = '$sUserID'");
-      $q->execute();
-
-      $data = $q->fetchAll();
-      $foundUser = $data[0];
-
   // Validation
   if( isset($_POST['txtEmail']) && 
       isset($_POST['txtPassword']) &&
       isset($_POST['txtFirstName']) &&
       isset($_POST['txtLastName'])
   ){
+    $sFirstName = $_POST['txtFirstName'];
+    $sLastName = $_POST['txtLastName'];
+    $sEmail = $_POST['txtEmail'];
+    $sPassword = $_POST['txtPassword'];
     $updateQ = $db->prepare(
-      "UPDATE user WHERE userID = '$sUserID'");
+      "UPDATE `user` 
+      SET `firstname`='$sFirstName', `lastname`='$sLastName', `email`='$sEmail', `password`='$sPassword' 
+      WHERE userID = '$sUserID'");
     $updateQ->execute();
   }
+    
+  $q = $db->prepare("SELECT * FROM user WHERE userID = '$sUserID'");
+  $q->execute();
 
-  // Testing database connection
-  // $sql = "INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES (NULL, 'B', '@B', 'passB')";
-  // $db->exec($sql);
-
+  $data = $q->fetchAll();
+  $foundUser = $data[0];
 
 ?>
 
@@ -46,73 +47,53 @@
 <?php
       include_once("components/nav.php");
 ?>
-  <div id="userLoginContainer">
-    <div id="userLoginBox">
-      <form id="userProfileSettingsForm" class="user-form" action="profile-settings.php" method="POST">
+  <main id="profile">
+    <div class="contentContainer">
+      <form class="profile-form" action="profile-settings.php" method="POST">
         <h1 class="form-h1">Profile Settings</h1>
 
-        <div style="display:grid">
-          <label for="txtName">Name</label>
-          <input name="txtName" type="text" placeholder="Name" value="<?= "$foundUser->firstname" ?>" disabled>
-          <button class="change-btn" onclick="toggleInput(txtName); return false;">Change</button>
-
-          <label for="txtLastName">Lastname</label>
-          <input name="txtLastName" type="text" placeholder="Last Name" value="<?= "$foundUser->lastname" ?>" disabled>
-          <button class="change-btn" onclick="toggleInput(txtLastName); return false;">Change</button>
-
+        <div class="form-name-container">
+          <div>
+            <label for="txtFirstName">Name</label>
+            <input name="txtFirstName" type="text" placeholder="Name" value="<?= "$foundUser->firstname" ?>">
+          </div>
+          <div>
+            <label for="txtLastName">Lastname</label>
+            <input name="txtLastName" type="text" placeholder="Last Name" value="<?= "$foundUser->lastname" ?>">
+          </div>
         </div>
 
         <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="text" placeholder="Email" value="<?= "$foundUser->email" ?>" disabled>
-        <button class="change-btn" onclick="toggleInput(txtEmail); return false;">Change</button>
+        <input name="txtEmail" type="text" placeholder="Email" value="<?= "$foundUser->email" ?>">
 
         <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>" disabled>
-        <button class="change-btn" onclick="toggleInput(txtPassword); return false;">Change</button>
+        <input name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>">
 
-        <button id="DeleteProfileBtn" onclick="showDeletePopup(); return false;">Delete your account</button>
-        <p class="delete-helper">You will receive an email to bla bla blaa</p>
-
+        <button class="deleteProfileBtn" onclick="showDeletePopup(); return false;">Delete your account</button>
+        
         <div class="profile-settings-form-btns">
-          <button class="form-btn-secondary">Go Back</button>
-          <button class="form-btn">Save</button>
+          <button class="btn form-btn-secondary">Cancel</button>
+          <button class="btn form-btn">Save</button>
         </div>
 
       </form>
-      <a class="back-btn" href="index.php">← Back to ELEARN</a>
     </div>
-    
-  </div>
-  <div id="DeleteProfileModal" class="modal">
+  </main>
+  <div id="deleteProfileModal" class="modal">
     <div class="modal-wrapper">
       <p class="modal-text">Are you sure you want to permanently delete your profile?</p>
       <div class="profile-settings-form-btns">
-      <button class="form-btn-secondary" onclick="showDeletePopup()">Cancel</button>
-      <button class="form-btn" onclick="window.location.href = 'delete-profile.php'";>Yes</button>
-        
-           
+        <button class="form-btn-secondary" onclick="showDeletePopup()">Cancel</button>
+        <button class="form-btn" onclick="window.location.href = 'delete-profile.php'";>Yes</button>    
       </div>
+    </div>
   </div>
-  </div>
-  <!-- <a href="signup.php">SIGN UP</a> -->
   <?php
         include_once("components/footer.html");
     ?>
     <script>
-
-      function toggleInput(input) {
-        if (!input.disabled) {
-          input.disabled = true;
-        } else if (input.disabled) {
-          input.disabled = false;
-        }
-      }
-
       function showDeletePopup() {
-       
-        document.querySelector('#DeleteProfileModal').classList.toggle("show");
-        console.log (document.querySelector('#DeleteProfileModal'));
-        
+        document.querySelector('#deleteProfileModal').classList.toggle("show"); 
       }
     </script>
 </body>

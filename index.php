@@ -79,6 +79,7 @@
             </div>
         </div>
     </section>
+    <?php include_once("components/footer.html");?>
 </body>
 </html>
 
