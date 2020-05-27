@@ -2,36 +2,31 @@
   require_once('has-access.php');
   // Initiating database connection
   require_once('db/db.php');
-  try{
-    $sUserID = $_SESSION['sUserId'];
+  
+  $sUserID = $_SESSION['sUserId'];
 
-    // Validation
-    if( isset($_POST['txtEmail']) && 
-        isset($_POST['txtPassword']) &&
-        isset($_POST['txtFirstName']) &&
-        isset($_POST['txtLastName'])
-    ){
-      $firstname = $_POST['txtFirstName'];
-      $lastname = $_POST['txtLastName'];
-      $email = $_POST['txtEmail'];
-      $password = $_POST['txtPassword'];
-      
-        $updateQ = $db->prepare(
-        "UPDATE `user` SET `firstname`='$firstname', `lastname`='$lastname', `email`='$email', `password`='$password' 
-        WHERE userID='$sUserID'");
-        $updateQ->execute();
-
-    }
-
-    $q = $db->prepare("SELECT * FROM user WHERE userID = '$sUserID'");
-    $q->execute();
-    $data = $q->fetchAll();
-
-    $foundUser = $data[0];
-  }catch(PDOException $ex) {
-    echo $ex;
+  // Validation
+  if( isset($_POST['txtEmail']) && 
+      isset($_POST['txtPassword']) &&
+      isset($_POST['txtFirstName']) &&
+      isset($_POST['txtLastName'])
+  ){
+    $sFirstName = $_POST['txtFirstName'];
+    $sLastName = $_POST['txtLastName'];
+    $sEmail = $_POST['txtEmail'];
+    $sPassword = $_POST['txtPassword'];
+    $updateQ = $db->prepare(
+      "UPDATE `user` 
+      SET `firstname`='$sFirstName', `lastname`='$sLastName', `email`='$sEmail', `password`='$sPassword' 
+      WHERE userID = '$sUserID'");
+    $updateQ->execute();
   }
-
+  $q = $db->prepare("SELECT * FROM user WHERE userID = '$sUserID'");
+  $q->execute();
+    
+  $data = $q->fetchAll();
+  $foundUser = $data[0];
+  
 ?>
 
 <!DOCTYPE html>
@@ -40,35 +35,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/user.css">
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/courses.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/courses.css">
 </head>
 <body>
 <?php
       include_once("components/nav.php");
 ?>
-  <div id="userLoginContainer">
-    <div id="userLoginBox">
-      <form id="userProfileSettingsForm" class="user-form" action="profile-settings.php" method="POST">
+  <main id="profile">
+    <div class="contentContainer">
+      <form class="profile-form" action="profile-settings.php" method="POST">
         <h1 class="form-h1">Profile Settings</h1>
 
-        <div style="display:grid">
-          <label for="txtFirstName">Firstname</label>
-          <input name="txtFirstName" type="text" placeholder="First Name" value="<?= "$foundUser->firstname" ?>">
-
-          <label for="txtLastName">Lastname</label>
-          <input name="txtLastName" type="text" placeholder="Last Name" value="<?= "$foundUser->lastname" ?>">
+        <div class="form-name-container">
+          <div>
+            <label for="txtFirstName">Name</label>
+            <input name="txtFirstName" type="text" placeholder="Name" value="<?= "$foundUser->firstname" ?>">
+          </div>
+          <div>
+            <label for="txtLastName">Lastname</label>
+            <input name="txtLastName" type="text" placeholder="Last Name" value="<?= "$foundUser->lastname" ?>">
+          </div>
         </div>
 
         <label for="txtEmail">Email Address</label>
@@ -77,33 +68,34 @@
         <label for="txtPassword">Password</label>
         <input name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>">
 
-        <button id="deleteProfileBtn" onclick="showDeletePopup(); return false;">Delete your account</button>
-
+        <button class="deleteProfileBtn" onclick="showDeletePopup(); return false;">Delete your account</button>
+        
         <div class="profile-settings-form-btns">
-          <button class="form-btn-secondary">Go Back</button>
-          <button class="form-btn">Save</button>
+          <button class="btn form-btn-secondary">Cancel</button>
+          <button class="btn form-btn">Save</button>
         </div>
 
       </form>
-      <a class="back-btn" href="index.php">← Back to ELEARN</a>
     </div>
-    
-  </div>
+  </main>
+
   <div id="deleteProfileModal" class="modal">
     <div class="modal-wrapper">
       <p class="modal-text">Are you sure you want to permanently delete your profile?</p>
       <div class="profile-settings-form-btns">
-      <button class="form-btn-secondary" onclick="showDeletePopup()">Cancel</button>
-      <button class="form-btn" onclick="window.location.href = 'delete-profile.php'";>Yes</button>
-        
-           
+        <button class="form-btn-secondary" onclick="showDeletePopup()">Cancel</button>
+        <button class="form-btn" onclick="window.location.href = 'delete-profile.php'";>Yes</button>    
       </div>
+    </div>
   </div>
-  </div>
-  <!-- <a href="signup.php">SIGN UP</a> -->
   <?php
         include_once("components/footer.html");
     ?>
-  <script src='profile-settings.js'></script>
+    <script>
+      function showDeletePopup() {
+        document.querySelector('#deleteProfileModal').classList.toggle("show"); 
+      }
+    </script>
+
 </body>
 </html>
