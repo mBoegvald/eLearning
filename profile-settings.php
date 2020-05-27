@@ -66,7 +66,8 @@
         <input name="txtEmail" type="text" placeholder="Email" value="<?= "$foundUser->email" ?>">
 
         <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>">
+        <input class="password" name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>">
+        <button class="change-btn" onclick="togglePassword(); return false;">Show</button>
 
         <button class="deleteProfileBtn" onclick="showDeletePopup(); return false;">Delete your account</button>
         
@@ -83,7 +84,7 @@
     <div class="modal-wrapper">
       <p class="modal-text">Are you sure you want to permanently delete your profile?</p>
       <div class="profile-settings-form-btns">
-        <button class="form-btn-secondary" onclick="showDeletePopup()">Cancel</button>
+        <button class="btn form-btn-secondary" onclick="showDeletePopup()">Cancel</button>
         <button class="form-btn" onclick="window.location.href = 'delete-profile.php'";>Yes</button>    
       </div>
     </div>
@@ -94,6 +95,12 @@
     <script>
       function showDeletePopup() {
         document.querySelector('#deleteProfileModal').classList.toggle("show"); 
+      }
+
+      function togglePassword() {
+        let myInput = document.querySelector(".password");
+        let changeButton = document.querySelector(".change-btn");
+        if(myInput.type === "password") {myInput.type = "text"; changeButton.textContent = "Hide"} else {myInput.type = "password"; changeButton.textContent = "Show"};
       }
     </script>
 
