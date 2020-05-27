@@ -31,13 +31,13 @@ if(isset($_SESSION['sUserId'])){
     <?php include_once("components/nav.php");?>
     <main id="courses">
         <div class="contentContainer">
-            <div class="courses-intro"><h1>Welcome<?php 
+            <div class="courses-intro"><h1><?php 
                     if(!isset($sFirstName)){
-                        echo "";
+                        echo "Courses to learn";
                     }if(isset($sFirstName)){
-                        echo " ".$sFirstName;
+                        echo "Welcome $sFirstName, what do you want to learn today?";
                     }
-                ?>, what do you want to learn today?</h1>
+                ?></h1>
                 <p>
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut aut inventore exercitationem necessitatibus repellendus mollitia ratione iure debitis, fuga est cupiditate eum, quasi velit praesentium ad corrupti modi aperiam dolore!
                 </p>

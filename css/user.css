@@ -75,6 +75,7 @@
   background-color: transparent;
   text-align: left;
   border: none;
+  font-weight: 700;
 }
 .profile-settings-form-btns {
   display: flex;
@@ -117,10 +118,6 @@
   padding: 5px;
   text-decoration: none;
   cursor: pointer;
-}
-
-#deleteProfileModal .profile-settings-form-btns {
-  display: flex;
 }
 
 #deleteProfileModal .profile-settings-form-btns .form-btn-secondary {
