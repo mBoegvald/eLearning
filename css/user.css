@@ -75,7 +75,6 @@
   background-color: transparent;
   text-align: left;
   border: none;
-  font-weight: 700;
 }
 .profile-settings-form-btns {
   display: flex;
@@ -120,8 +119,18 @@
   cursor: pointer;
 }
 
+#deleteProfileModal .profile-settings-form-btns {
+  display: flex;
+  justify-content: center;
+}
+
 #deleteProfileModal .profile-settings-form-btns .form-btn-secondary {
-  margin-right: 10px;
+  margin-right: 1rem;
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 #deleteProfileModal .profile-settings-form-btns .form-btn {
@@ -151,6 +160,7 @@ input:disabled {
   border: none;
   text-align: right;
   cursor: pointer;
+  outline: 0;
 }
 
 #userProfileSettingsForm input {
