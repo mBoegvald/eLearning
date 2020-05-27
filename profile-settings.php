@@ -21,13 +21,12 @@
       WHERE userID = '$sUserID'");
     $updateQ->execute();
   }
-    
   $q = $db->prepare("SELECT * FROM user WHERE userID = '$sUserID'");
   $q->execute();
-
+    
   $data = $q->fetchAll();
   $foundUser = $data[0];
-
+  
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +78,7 @@
       </form>
     </div>
   </main>
+
   <div id="deleteProfileModal" class="modal">
     <div class="modal-wrapper">
       <p class="modal-text">Are you sure you want to permanently delete your profile?</p>
@@ -96,5 +96,6 @@
         document.querySelector('#deleteProfileModal').classList.toggle("show"); 
       }
     </script>
+
 </body>
 </html>
