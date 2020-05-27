@@ -68,7 +68,6 @@
   color: var(--main-color);
 }
 
-
 .deleteProfileBtn {
   cursor: pointer;
   color: #ec5d5e;
@@ -122,15 +121,16 @@
 
 #deleteProfileModal .profile-settings-form-btns {
   display: flex;
-}
-
-
-#deleteProfileModal .profile-settings-form-btns {
-  display: flex;
+  justify-content: center;
 }
 
 #deleteProfileModal .profile-settings-form-btns .form-btn-secondary {
-  margin-right: 10px;
+  margin-right: 1rem;
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  margin-top: 1rem;
+  padding: 1rem;
 }
 
 #deleteProfileModal .profile-settings-form-btns .form-btn {
@@ -160,6 +160,7 @@ input:disabled {
   border: none;
   text-align: right;
   cursor: pointer;
+  outline: 0;
 }
 
 #userProfileSettingsForm input {
@@ -173,4 +174,3 @@ input:disabled {
     grid-gap: 1rem;
   }
 }
-

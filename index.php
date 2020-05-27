@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/icons.css" />
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/slideshow.css">
     <!-- <link
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
       rel="stylesheet"
@@ -73,13 +74,48 @@
     <section id="reviews">
         <div class="contentContainer">
             <h1>Here is what our users say</h1>
-            <div class="mainContent">
-                <h1>Overskrift</h1>
+            <div class="mainContent slide">
+                <h1>Overskrift 1</h1>
                 <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est. t. </p>
+                <div class="stars">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                </div>
             </div>
+            <div class="mainContent slide">
+                <h1>Overskrift 2</h1>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est. t. </p>
+                <div class="stars">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                </div>
+            </div>
+            <div class="mainContent slide">
+                <h1>Overskrift 3</h1>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est. t. </p>
+                <div class="stars">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                    <img src="pics/star.png">
+                </div>
+            </div>
+        </div>
+        <div class="slideLines">
+            <span class="line" onclick="currentSlide(1)"></span>
+            <span class="line" onclick="currentSlide(2)"></span>
+            <span class="line" onclick="currentSlide(3)"></span>
         </div>
     </section>
     <?php include_once("components/footer.html");?>
+    <script src="slideshow.js"></script>
 </body>
 </html>
 
