@@ -36,8 +36,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Login</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/user.css">
   <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/user.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/courses.css">
@@ -67,12 +67,12 @@
 
         <label for="txtPassword">Password</label>
         <input class="password" name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>">
-        <button class="change-btn" onclick="togglePassword(); return false;">Show</button>
+        <button class="change-btn" onclick="togglePassword(); return false;">Show password</button>
 
         <button class="deleteProfileBtn" onclick="showDeletePopup(); return false;">Delete your account</button>
         
         <div class="profile-settings-form-btns">
-          <button class="btn form-btn-secondary">Cancel</button>
+          <a href="dashboard.php" class="btn form-btn-secondary">Cancel</a>
           <button class="btn form-btn">Save</button>
         </div>
 
@@ -100,7 +100,13 @@
       function togglePassword() {
         let myInput = document.querySelector(".password");
         let changeButton = document.querySelector(".change-btn");
-        if(myInput.type === "password") {myInput.type = "text"; changeButton.textContent = "Hide"} else {myInput.type = "password"; changeButton.textContent = "Show"};
+        
+        if(myInput.type === "password") {
+          myInput.type = "text"; 
+          changeButton.textContent = "Hide password"
+        } else {
+          myInput.type = "password";
+          changeButton.textContent = "Show password"};
       }
     </script>
 

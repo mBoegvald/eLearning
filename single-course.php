@@ -1,7 +1,7 @@
 <?php 
 require_once('has-access.php');
  // Initiating database connection
- require_once('db/db.php');
+require_once('db/db.php');
 try{
     $sUserID = $_SESSION['sUserId'];
     $iCourseID = $_GET['courseID'];
@@ -16,10 +16,11 @@ try{
         if($iCourseID == $singleCourse->courseID)
             $sCourseDiv .= "
                 <h1>$singleCourse->header</h1>
-                <P>$singleCourse->text</p>
+                <p>$singleCourse->text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut aut inventore exercitationem necessitatibus repellendus mollitia ratione iure debitis, fuga est cupiditate eum, quasi velit praesentium ad corrupti modi aperiam dolore!
+                </p>
                 <div class='videoContainer'>
                     <video id='courseVideo' controls>
-                        <source src='$singleCourse->videoLink' type='video/mp4'>
+                        <source src='CRUDcourse_Trim.mp4' type='video/mp4'>
                     </video>
                 </div>";
     }
@@ -29,10 +30,14 @@ try{
     $courseProgressQ->execute();
     $courseProgressData = $courseProgressQ->fetchAll();
     $boolean = 0;
-    
+    $completed = 0;
+    // If user doesn't exist in the course_progress database create him/her
     foreach($courseProgressData as $course) {
-       if ($course->userID == $sUserID && $course->courseID == $iCourseID){ // If user doesn't exist in the course_progress database create him/her
+       if ($course->userID == $sUserID && $course->courseID == $iCourseID){ 
             $boolean = 1;
+            if($course->courseCompleted == 1) {
+                $completed = 1;
+            }
             break;
         } 
     }
@@ -64,14 +69,18 @@ try{
 <body>
     <?php
         include_once("components/nav.php");
-        
     ?>
-        <div class='courseContainer'>
-            <?= $sCourseDiv; ?>
-            <form action="dashboard.php" method="POST">
-                <button type="submit" value="<?=$iCourseID?>" class="btn signup-button" name="endCourse">Course completed</button>
-            </form>
+    <main id="single-course">
+        <div class="contentContainer">
+            <div class='courseContainer'>
+                <?= $sCourseDiv; ?>
+                <form class="single-course-form" action="dashboard.php" method="POST">
+                    <a class="back-btn" href="dashboard.php">← Back <span id="single-course-back-btn">to courses</span></a>
+                    <button <?php if($completed === 0){echo 'disabled';}?> type="submit" value="<?=$iCourseID?>" class="btn form-btn" name="endCourse">Finish course</button>
+                </form>
+            </div>
         </div>
+    </main>
     <?php
         include_once("components/footer.html");
     ?>
