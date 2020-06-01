@@ -128,8 +128,7 @@ hr {
   background-color: var(--tertiary-color);
 }
 #reviews h1 {
-  max-width: 80%;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
   text-align: center;
   font-family: var(--font-header);
   font-size: 2.8rem;
@@ -149,6 +148,17 @@ hr {
   font-weight: 400;
   font-style: italic;
   color: rgba(0, 0, 0, 0.8);
+}
+
+.stars {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.stars img {
+  width: 100%;
 }
 
 /* REVIEWS END */
@@ -229,7 +239,8 @@ hr {
   .mainContent h1 {
     font-size: 8rem;
   }
-  .mainContent p {
+  .mainContent p,
+  .mainContent .stars {
     max-width: 55%;
   }
 

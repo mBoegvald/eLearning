@@ -78,7 +78,6 @@
         <a class="login-helper" href="login.php">Already have an account? Login.</a>
           
       </form>
-      <a class="back-btn" href="index.php">← Back to ELEARN</a>
     </div>
   </main>
  

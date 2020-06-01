@@ -59,7 +59,6 @@
         <button class="btn form-btn">Log In</button>
         <a class="login-helper" href="signup.php">Don't have an account? Sign Up.</a>
       </form>
-      <a class="back-btn" href="index.php">← Back to ELEARN</a>
     </div>
   </main>
   
