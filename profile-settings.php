@@ -80,15 +80,17 @@
     </div>
   </main>
 
-  <div id="deleteProfileModal" class="modal">
-    <div class="modal-wrapper">
-      <p class="modal-text">Are you sure you want to permanently delete your profile?</p>
+  <section id="deleteProfileModal" class="modal">
+    <div class="contentContainer">
+      <div class="profile-form">
+      <h1 class="form-h1">Are you sure you want to permanently delete your profile?</h1>
       <div class="profile-settings-form-btns">
         <button class="btn form-btn-secondary" onclick="showDeletePopup()">Cancel</button>
-        <button class="form-btn" onclick="window.location.href = 'delete-profile.php'";>Yes</button>    
+        <button class="btn form-btn" onclick="window.location.href = 'delete-profile.php'";>Yes</button>    
+      </div>
       </div>
     </div>
-  </div>
+  </section>
   <?php
         include_once("components/footer.html");
     ?>

@@ -29,16 +29,6 @@
         '</ul>',
       '</div>'
     ]
-    // ,
-    // 'admin' => [
-    //   '<div class="navbar-collapse">',
-    //     '<ul>',
-    //       '<li><a href="#">Dashboard</a></li>',
-    //       '<li><a href="#">Profile</a></li>',
-    //       '<li><a href="#" class="red-btn">Log out</a></li>',
-    //     '</ul>',
-    //   '</div>'
-    // ]
   ];
   ?>
     <nav>
