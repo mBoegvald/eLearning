@@ -19,8 +19,6 @@
       $q = $db->prepare("INSERT INTO `user` (`userID`, `firstname`,`lastname`, `email`, `password`) 
       VALUES ('$sUserID', '$sUserFirstName','$sUserLastName', '$sUserEmail', '$sUserPassword')");
       $q->execute();
-      
-      echo "New user created successfully";
 
       // To start using sessions/cookies 
       session_start();
@@ -31,11 +29,6 @@
       header('Location: login.php');
       exit();
   }
-
-  // Testing database connection
-  // $sql = "INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES (NULL, 'B', '@B', 'passB')";
-  // $db->exec($sql);
-
 
 ?>
 

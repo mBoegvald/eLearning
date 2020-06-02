@@ -84,6 +84,6 @@ try{
     <?php
         include_once("components/footer.html");
     ?>
-    <script src="single-course.js"></script>
+    <script src="js/single-course.js"></script>
 </body>
 </html>

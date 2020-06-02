@@ -18,7 +18,6 @@
       $_SESSION['sEmail'] = $sUserEmail;
       $_SESSION['sFirstName'] = $foundUser->firstname;
       $_SESSION['sUserId'] = $foundUser->userID;
-      echo "Hello, User ID: $foundUser->userID. Your Name is $foundUser->firstname, your email is $sUserEmail and your password is correct.";
       header('Location: dashboard.php');
       exit();
     }

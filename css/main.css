@@ -13,6 +13,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  outline: 0;
 }
 html {
   font-size: 62.5%; /* Now 10px = 1rem! */
@@ -46,8 +47,9 @@ a {
 .mainContent {
   border: 2px solid var(--white);
   color: var(--white);
-  padding: 3.5rem 2rem 5rem;
+  padding: 5rem 2rem 5rem;
   text-align: center;
+  margin: 0 auto 4rem;
 }
 
 .mainContent h1 {
@@ -185,33 +187,13 @@ hr {
   border: 1px solid var(--main-color);
   color: var(--main-color);
   margin-top: 1rem;
-  padding: 1rem;
+  text-align: center;
 }
 
 .back-btn {
   color: black;
   text-decoration: none;
-  font-size: 80%;
-  padding: 2rem;
-}
-
-#deleteProfileModal .form-btn {
-  border: none;
-  margin-top: 10px;
-  padding: 10px;
-  font-weight: 400;
-  background: #ec5d5e;
-  border: 3px solid #ec5d5e;
-  box-sizing: border-box;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-  color: white;
-  width: 50%;
-  height: 50px !important;
-  justify-self: right;
-  padding: 5px;
-  text-decoration: none;
-  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .change-btn {
@@ -229,11 +211,15 @@ hr {
   .info-content {
     grid-template-columns: 10fr 0 10fr;
   }
+  .mainContent {
+    max-width: 600px;
+  }
 }
 
 @media screen and (min-width: 1140px) {
   .mainContent {
-    margin: 5rem 25rem 0;
+    max-width: 850px;
+    margin: 5rem auto 0;
     padding-bottom: 15rem;
   }
   .mainContent h1 {

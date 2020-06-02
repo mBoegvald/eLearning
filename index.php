@@ -110,6 +110,6 @@
         </div>
     </section>
     <?php include_once("components/footer.html");?>
-    <script src="slideshow.js"></script>
+    <script src="js/slideshow.js"></script>
 </body>
 </html>
