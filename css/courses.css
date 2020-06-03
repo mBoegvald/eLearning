@@ -1,0 +1,115 @@
+#courses {
+  background-color: var(--tertiary-color);
+}
+.courses-intro {
+  color: var(--main-color);
+  text-align: center;
+  padding-bottom: 2.5rem;
+}
+
+.courses-intro h1 {
+  font-family: var(--font-header);
+}
+
+.courses-container {
+  display: grid;
+  grid-template-columns: 10fr;
+  grid-gap: 3rem;
+}
+.course {
+  display: grid;
+  /* grid-template-rows: 20fr 20fr 8fr; */
+  grid-template-rows: 20fr 15fr 5fr;
+  background-color: var(--white);
+  box-shadow: 0px 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.img-container {
+  position: relative;
+  min-height: 260px;
+  background-color: var(--main-color);
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.course img {
+  position: absolute;
+  height: 50%;
+  transform: translate(-50%);
+  left: 50%;
+  top: 10%;
+}
+
+.image-color {
+  stroke: var(--secondary-color);
+}
+.course h1 {
+  position: absolute;
+  width: 100%;
+  transform: translate(-50%);
+  left: 50%;
+  bottom: 10%;
+  padding: 0 2rem;
+  color: var(--secondary-color);
+  font-family: var(--font-header);
+  font-size: 1.7rem;
+  font-weight: 300;
+  text-align: center;
+}
+.course h1 span {
+  font-weight: bold;
+}
+/* .badge {
+  transform: translate(-50%);
+  width: 50%;
+  max-height: 50%;
+  z-index: 1;
+  left: 50%;
+  top: 5%;
+} */
+
+.course-text {
+  padding: 2.5rem 3rem 0;
+  color: var(--main-color);
+}
+
+.course-link {
+  padding: 2rem 3rem 0;
+}
+
+.course-link a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 600px) {
+  .course {
+    grid-template-rows: 35fr 20fr 8fr;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .courses-container {
+    grid-template-columns: 10fr 10fr;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .courses-container {
+    grid-template-columns: 10fr 10fr 10fr;
+  }
+  .courses-intro {
+    padding-bottom: 5rem;
+  }
+  .course h1 {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1440px) {
+  #courses {
+    padding: 4rem 0 6rem;
+  }
+  .course {
+    grid-template-rows: 28fr 20fr 8fr;
+  }
+}

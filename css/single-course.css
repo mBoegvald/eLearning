@@ -1,0 +1,41 @@
+#single-course {
+  background-color: var(--tertiary-color);
+}
+
+.courseContainer {
+  text-align: center;
+}
+
+video#courseVideo {
+  width: 100%;
+}
+
+.courseContainer p {
+  margin: 1rem auto 4rem;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.btn:disabled {
+  background-color: #c9c9c9;
+}
+
+.single-course-form .back-btn {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#single-course-back-btn {
+  display: none;
+}
+
+@media only screen and (min-width: 600px) {
+  #single-course-back-btn {
+    display: inline-block;
+  }
+}
