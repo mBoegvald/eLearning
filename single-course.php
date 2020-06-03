@@ -16,11 +16,12 @@ try{
         if($iCourseID == $singleCourse->courseID)
             $sCourseDiv .= "
                 <h1>$singleCourse->header</h1>
-                <p>$singleCourse->text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut aut inventore exercitationem necessitatibus repellendus mollitia ratione iure debitis, fuga est cupiditate eum, quasi velit praesentium ad corrupti modi aperiam dolore!
+                <p>
+                $singleCourse->text
                 </p>
                 <div class='videoContainer'>
                     <video id='courseVideo' controls>
-                        <source src='https://www.loom.com/embed/8fadc9f556794035a998e5f36e1bdccd' type='video/mp4'>
+                        <source src='vids/$singleCourse->video.mp4' type='video/mp4'>
                     </video>
                 </div>";
     }
