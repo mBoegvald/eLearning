@@ -8,4 +8,4 @@ if(isset($_SESSION['sUserId'])){
     $deleteUserQ->execute();
 }
 
-header('Location: index.php');
+header('Location: logout.php');
