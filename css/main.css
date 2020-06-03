@@ -2,6 +2,7 @@
   --main-color: #5e5657;
   --secondary-color: #f8bd9e;
   --tertiary-color: #fcded0;
+  --hover-color: #f8d1bd;
   --white: #fff;
   --black: #000;
   --emphasize-color: #f7bd9e;
@@ -99,10 +100,10 @@ a {
 .info-element-header {
   display: grid;
   grid-template-columns: 2fr 10fr;
-  margin-bottom: 0.5rem;
+  margin-bottom: 3rem;
 }
 .info-element-header img {
-  width: 9rem;
+  height: 9rem;
 }
 .info-element-header h1 {
   align-self: end;
@@ -174,6 +175,11 @@ hr {
   cursor: pointer;
   font-family: var(--font-text);
   font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--hover-color);
 }
 
 .form-btn {
@@ -188,6 +194,11 @@ hr {
   color: var(--main-color);
   margin-top: 1rem;
   text-align: center;
+}
+
+.form-btn-secondary:hover {
+  background-color: transparent;
+  border: 1px solid var(--secondary-color);
 }
 
 .back-btn {
@@ -232,6 +243,10 @@ hr {
 
   .info-content {
     padding: 6rem 0 8rem;
+  }
+
+  #landing .contentContainer {
+    padding-bottom: 20rem;
   }
 
   #landing .btn {

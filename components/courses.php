@@ -26,20 +26,28 @@
         $sCourseDiv .= "
         <div class='course'>
           <div class='img-container'>";
-
+        $boolean = 0;
+        
         foreach($courseProgressData as $courseProgress) {
             
-            if ($courseProgress->courseID == $course->courseID && $courseProgress->courseCompleted == 1) {
-                $sCourseDiv .= "<img class='badge' src='pics/badge.png'/>";
-            }
+          if ($courseProgress->courseID == $course->courseID && $courseProgress->courseCompleted == 1) {
+            $sCourseDiv .= "<img class='badge' src='pics/badge.svg'/>";
+            $boolean = 1;
+            break;
           }
+        }
+     
+        if($boolean == 0) {
+          $sCourseDiv .= "<img class='badge image-color' src='pics/$course->image.svg'/>";
+        }
+
             $sCourseDiv .= "
-              <img src='pics/placeholder.jpg' alt='$course->alt' />
+            <h1>$course->iconHeader</h1>
             </div>
             <div class='course-text'>
                 <h3>$course->header</h3>
                 <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi cupiditate asperiores corrupti natus. Eum modi doloremque libero soluta itaque iste dolores ipsum quibusdam numquam. Fuga dolores magni maiores reiciendis dolore!
+                $course->text
                 </p>
             </div>
             <div class='course-link'>

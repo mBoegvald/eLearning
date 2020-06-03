@@ -20,7 +20,7 @@ try{
                 </p>
                 <div class='videoContainer'>
                     <video id='courseVideo' controls>
-                        <source src='CRUDcourse_Trim.mp4' type='video/mp4'>
+                        <source src='https://www.loom.com/embed/8fadc9f556794035a998e5f36e1bdccd' type='video/mp4'>
                     </video>
                 </div>";
     }

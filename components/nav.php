@@ -35,7 +35,7 @@
       <div class="nav-container">
       <div id="mobile-container">
         <div class="logo">
-          <a href="index.php"><img src="./pics/lightbulb.png" alt="">Learn<span class="emphasize">DB</span></a>
+          <a href="index.php"><img src="./pics/lightbulb.svg" alt="">Learn<span class="emphasize">DB</span></a>
         </div>
         <div class="navbar-toggler">
           <div class="bar1"></div>

@@ -25,7 +25,6 @@ if(isset($_SESSION['sUserId'])){
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/courses.css">
     <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
     <?php include_once("components/nav.php");?>
@@ -39,7 +38,8 @@ if(isset($_SESSION['sUserId'])){
                     }
                 ?></h1>
                 <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut aut inventore exercitationem necessitatibus repellendus mollitia ratione iure debitis, fuga est cupiditate eum, quasi velit praesentium ad corrupti modi aperiam dolore!
+                    We provide courses that will teach you how to work and create a database.<br>
+                    Go on start learning today!
                 </p>
             </div>
             <?php include_once("components/courses.php");?>
