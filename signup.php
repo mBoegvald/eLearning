@@ -51,21 +51,21 @@
   ?>
   <main id="signup">
     <div class="contentContainer">
-      <form class="signup-form" action="signup.php" method="POST">
+      <form class="signup-form" onsubmit="return validate()" action="signup.php" method="POST">
         <h1 class="form-h1">Sign Up</h1>
 
         <div style="display:grid">
           <label for="txtFirstName">Name</label>
-          <input name="txtFirstName" type="text" placeholder="First Name" required>
+          <input oninput="validate()" type="text" data-validate="string" name="txtFirstName" placeholder="First Name" required>
           <label for="txtLastName">Lastname</label>
-          <input name="txtLastName" type="text" placeholder="Last Name" required>
+          <input oninput="validate()" type="text" data-validate="string" name="txtLastName" type="text" placeholder="Last Name" required>
         </div>
 
         <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="email" placeholder="Email" required>
+        <input oninput="validate()" data-validate="email" name="txtEmail" type="email" placeholder="Email" required>
 
-        <label for="txtPassword">Password</label>
-        <input name="txtPassword" type="password" placeholder="Password" required>
+        <label for="txtPassword">Password <span class="label-span">(must be 8-32 characters and include a number)</span></label>
+        <input oninput="validate()" data-validate="password" name="txtPassword" type="password" placeholder="Password" required>
 
         <button class="btn form-btn">Sign Up</button>
         <a class="login-helper" href="login.php">Already have an account? Login.</a>
@@ -75,7 +75,8 @@
   </main>
  
   <?php
-        include_once("components/footer.html");
-    ?>
+    include_once("components/footer.html");
+  ?>
+  <script src="js/validate.js"></script>
 </body>
 </html>

@@ -54,19 +54,19 @@
         <div class="form-name-container">
           <div>
             <label for="txtFirstName">Name</label>
-            <input name="txtFirstName" type="text" placeholder="Name" value="<?= "$foundUser->firstname" ?>">
+            <input name="txtFirstName" oninput="validate()" type="text" data-validate="string" placeholder="Name" value="<?= "$foundUser->firstname" ?>">
           </div>
           <div>
             <label for="txtLastName">Lastname</label>
-            <input name="txtLastName" type="text" placeholder="Last Name" value="<?= "$foundUser->lastname" ?>">
+            <input name="txtLastName" oninput="validate()" type="text" data-validate="string" placeholder="Last Name" value="<?= "$foundUser->lastname" ?>">
           </div>
         </div>
 
         <label for="txtEmail">Email Address</label>
-        <input name="txtEmail" type="text" placeholder="Email" value="<?= "$foundUser->email" ?>">
+        <input name="txtEmail" oninput="validate()" data-validate="email" type="email" placeholder="Email" value="<?= "$foundUser->email" ?>">
 
         <label for="txtPassword">Password</label>
-        <input class="password" name="txtPassword" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>">
+        <input class="password" name="txtPassword" oninput="validate()" data-validate="password" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>">
         <button class="change-btn" onclick="togglePassword(); return false;">Show password</button>
 
         <button class="deleteProfileBtn" onclick="showDeletePopup(); return false;">Delete your account</button>
@@ -111,6 +111,7 @@
           changeButton.textContent = "Show password"};
       }
     </script>
+    <script src="js/validate.js"></script>
 
 </body>
 </html>
