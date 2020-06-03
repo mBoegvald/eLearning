@@ -48,7 +48,7 @@
 ?>
   <main id="profile">
     <div class="contentContainer">
-      <form class="profile-form" action="profile-settings.php" method="POST">
+      <form class="profile-form" onsubmit="return validate()" action="profile-settings.php" method="POST">
         <h1 class="form-h1">Profile Settings</h1>
 
         <div class="form-name-container">
