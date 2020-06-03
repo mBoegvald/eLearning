@@ -24,7 +24,7 @@
       '<div class="navbar-collapse">',
         '<ul>',
           '<li><a href="dashboard.php">Dashboard</a></li>',
-          '<li><a href="profile-settings.php">Profile</a></li>',
+          '<li><a href="profile-settings.php">Profile settings</a></li>',
           '<li><a href="logout.php" class="nav-btn">Log out</a></li>',
         '</ul>',
       '</div>'

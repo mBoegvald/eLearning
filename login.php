@@ -12,16 +12,19 @@
     $q = $db->prepare("SELECT * FROM user WHERE email = '$sUserEmail'");
     $q->execute();
     $data = $q->fetchAll();
-    $foundUser = $data[0];
-    if($foundUser->password == $_POST['txtPassword']) {
-      session_start();
-      $_SESSION['sEmail'] = $sUserEmail;
-      $_SESSION['sFirstName'] = $foundUser->firstname;
-      $_SESSION['sUserId'] = $foundUser->userID;
-      header('Location: dashboard.php');
-      exit();
+    if(!isset($data[0])) {
+      echo "<script type='text/javascript'>alert('Wrong email or password');</script>";
+    }else {
+      $foundUser = $data[0];
+      if($foundUser->password == $_POST['txtPassword']) {
+        session_start();
+        $_SESSION['sEmail'] = $sUserEmail;
+        $_SESSION['sFirstName'] = $foundUser->firstname;
+        $_SESSION['sUserId'] = $foundUser->userID;
+        header('Location: dashboard.php');
+        exit();
+      }
     }
-      
   }
 
 ?>
