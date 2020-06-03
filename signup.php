@@ -16,9 +16,9 @@
     $sUserPassword = $_POST['txtPassword'];
     $sUserID = bin2hex(random_bytes(8));
       // Inserting new user into crud database
-      $q = $db->prepare("INSERT INTO `user` (`userID`, `firstname`,`lastname`, `email`, `password`) 
+    $q = $db->prepare("INSERT INTO `user` (`userID`, `firstname`,`lastname`, `email`, `password`) 
       VALUES ('$sUserID', '$sUserFirstName','$sUserLastName', '$sUserEmail', '$sUserPassword')");
-      $q->execute();
+    $q->execute();
 
       // To start using sessions/cookies 
       session_start();

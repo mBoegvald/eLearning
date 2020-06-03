@@ -10,9 +10,10 @@
 
 #reviews .slideLines .line {
   width: 6.5rem;
-  border: 0.2rem solid #f8bd9e;
+  border: 0.4rem solid #f8bd9e;
   margin: 0 1rem 0 1rem;
   transition: 0.1s;
+  cursor: pointer;
 }
 
 #reviews .slideLines .line:hover,
