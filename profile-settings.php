@@ -65,7 +65,7 @@
         <label for="txtEmail">Email Address</label>
         <input name="txtEmail" oninput="validate()" data-validate="email" type="email" placeholder="Email" value="<?= "$foundUser->email" ?>">
 
-        <label for="txtPassword">Password</label>
+        <label for="txtPassword">Password <span class="label-span">(must be 8-32 characters and include a number)</span></label>
         <input class="password" name="txtPassword" oninput="validate()" data-validate="password" type="password" placeholder="Password" value="<?= "$foundUser->password" ?>">
         <button class="change-btn" onclick="togglePassword(); return false;">Show password</button>
 

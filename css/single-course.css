@@ -20,13 +20,8 @@ form {
   margin: 1rem 0;
 }
 
-#single-course .btn {
-  border-image-slice: 1;
-}
-
 .btn:disabled {
-  color: #5e56577a;
-  border: 2px solid transparent;
+  background-color: #c9c9c9;
 }
 
 .single-course-form .back-btn {
